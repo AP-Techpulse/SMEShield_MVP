@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 52" width="260" height="52" fill="none">
+  <defs>
+    <linearGradient id="shieldLeftGrad" x1="4" y1="4" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1A2B48" />
+      <stop offset="100%" stop-color="#0B132B" />
+    </linearGradient>
+    <linearGradient id="shieldRightGrad" x1="22" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0060AC" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+  </defs>
+  <!-- Geometric Dual-Facet Shield Mark -->
+  <g transform="translate(4, 2)">
+    <path d="M22 2L6 8.5V23C6 33.5 13 41.5 22 45V2Z" fill="url(#shieldLeftGrad)" />
+    <path d="M22 2L38 8.5V23C38 33.5 31 41.5 22 45V2Z" fill="url(#shieldRightGrad)" />
+    <path d="M22 2V45" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.2" />
+    <path d="M17 23.5L20.5 27L27 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="22" cy="13.5" r="2.2" fill="#F59E0B" />
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="30" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="24" fill="#1A2B48" letter-spacing="-0.5">SME<tspan fill="#0060AC">Shield</tspan></text>
+  <text x="57" y="42" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="8.5" fill="#64748B" letter-spacing="1.6">CYBERSECURITY AWARENESS</text>
+</svg>
