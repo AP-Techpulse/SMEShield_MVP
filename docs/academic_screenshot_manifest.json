@@ -245,8 +245,8 @@
     "route": "/dashboard",
     "role": "Business Owner",
     "viewport": "1440x900",
-    "caption": "Figure 4.12: Human Firewall Score (HFS) Gauge reflecting verified workforce readiness (0-100%).",
-    "description": "Composite metric combining baseline diagnostics, module completion, and quiz mastery.",
+    "caption": "Figure 4.12: Human Firewall Score (HFS) Gauge reflecting composite training progress (0-100%).",
+    "description": "Dual-factor composite metric combining module completion breadth (35%) and average quiz mastery score (65%).",
     "tourStep": null,
     "targetDirs": [
       "docs\\report_figures"

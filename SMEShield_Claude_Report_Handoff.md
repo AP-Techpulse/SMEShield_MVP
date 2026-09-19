@@ -7,26 +7,26 @@
 **Production Deployment:** `https://sme-shield-mvp.vercel.app` (Vercel Global Edge Network)  
 
 ---
-
 ## Institutional Academic Identity & Candidate Details
 
 | Academic Metadata Field | Authoritative Institutional Value |
 | :--- | :--- |
-| **Approved Project Title** | **Design and Implementation of a Web-Based Bilingual and Adaptive Cybersecurity Awareness Training and Self-Assessment Platform for SMEs in Nigeria** |
+| **Approved Project Title** | **Design and Implementation of a Web-Based Bilingual and Adaptive Cybersecurity Awareness Training and Self-Assessment Platform for SMEs in Nigeria (SMEShield)** |
 | **Product Short Name** | **SMEShield** |
-| **Degree Qualification** | **B.Sc. Final-Year Undergraduate Computer Science Project** |
+| **Degree Qualification** | **B.Sc. Final-Year Undergraduate Computer Science Project Report** |
 | **Programme** | Bachelor of Science (B.Sc.) in Computer Science |
 | **Candidate Name** | **Aruah Paul Ajirioghene** |
 | **Matriculation Number** | **FOS/22/23/287477** |
 | **Department** | Department of Computer Science |
-| **Faculty / College** | Faculty of Science |
+| **Faculty / College** | **Faculty of Computing** (Delta State University, Abraka) |
 | **Institution** | Delta State University, Abraka, Delta State, Nigeria |
-| **Project Supervisor** | Dr. (Mrs.) Chika Lillian Onyagu |
-| **Conceptual Foundation** | *"The Human Firewall: Rethinking Network Security Principles Beyond Technology"* (Precursor Academic Seminar Presentation) |
+| **Project Supervisor** | **Dr. Mrs. Chika Lillian Onyagu** |
+| **Approved Report Date** | **July 2026** (Original Submission Baseline; Evidence Freeze: September 2026) |
+| **Conceptual Foundation** | *"The Human Firewall: Rethinking Network Security Principles Beyond Technology"* (Approved Precursor Seminar Presentation) |
 
 > [!IMPORTANT]
-> **Workspace Boundary & Report Reconciliation Note for Claude AI:**  
-> The candidate's draft manuscript of Chapters 1–3, seminar report, and departmental project guide are not resident inside the current Antigravity workspace repository. This handoff package provides an authoritative provisional objective-to-evidence reconciliation matrix specifically formatted for Claude AI to cross-reference and harmonize against the candidate's existing manuscript, seminar paper, and project references. Claude AI must strictly audit and reconcile these sources without modifying approved dissertation titles, candidate details, or research identities.
+> **Supervisor-Approved Academic Baseline & Preservation Mandate for Claude AI:**  
+> The candidate's supervisor, **Dr. Mrs. Chika Lillian Onyagu**, has already reviewed and formally approved Chapters 1–3 of this project report. Claude AI must **NOT** rewrite Chapters 1–3 substantially, nor replace the approved aim and five objectives with an alternative set of technical objectives. The primary remaining academic task is to draft **Chapters 4 and 5** and integrate all five chapters into one coherent dissertation. Any adjustments to Chapters 1–3 must be strictly minimal, factually necessary, and classified according to the four-tier audit framework (Category A, B, C, or D) detailed in `SMEShield_Report_Discrepancy_Audit.md`.
 
 ---
 
@@ -36,123 +36,185 @@
 The conceptual foundation of SMEShield originates directly from the candidate's approved seminar research entitled:
 > **"The Human Firewall: Rethinking Network Security Principles Beyond Technology"**
 
-The seminar established four foundational theoretical propositions:
-1. **The Inadequacy of Technical-Only Perimeters:** Conventional cybersecurity architectures invest predominantly in perimeter hardware and automated software (firewalls, Intrusion Detection/Prevention Systems, Anti-malware, and Endpoint Detection and Response). However, global and regional threat telemetry demonstrates that over 85% to 90% of successful enterprise data breaches and financial fraud originate through social engineering, psychological manipulation, and human error.
-2. **The "Human Layer" as an Active Defense Component:** Rather than conceptualizing employees and business operators merely as the "weakest link" in security infrastructure, the Human Firewall paradigm conceptualizes informed individuals as the first line of proactive detection, verification, and containment.
-3. **The SME Vulnerability Asymmetry:** While large multinationals and financial institutions possess dedicated Security Operations Centers (SOCs), Chief Information Security Officers (CISOs), and substantial training budgets, Small and Medium Enterprises (SMEs) in developing economies operate with minimal technical staffing, severe capital constraints, and informal digital communication channels (e.g., WhatsApp, personal mobile banking, and Point-of-Sale terminals).
-4. **The Behavioral Inoculation Imperative:** Traditional annual compliance lectures fail to induce lasting behavioral habits. Effective cybersecurity education requires digestible micro-learning, situated contextual scenarios, indigenous linguistic familiarity, and regular cognitive reinforcement.
+The seminar and Chapter 1 establish four foundational theoretical propositions:
+1. **The Inadequacy of Technical-Only Perimeters:** Conventional cybersecurity architectures invest predominantly in perimeter hardware and automated software (firewalls, Intrusion Detection/Prevention Systems, Anti-malware, and Endpoint Detection and Response). However, global and regional threat telemetry demonstrates that over 85% to 90% of successful enterprise data breaches and financial fraud originate through social engineering, psychological manipulation, and human error (Kadena & Gupi, 2021; Li et al., 2021). In Nigeria, the financial sector alone lost an estimated ₦52.26 billion to fraud in 2024 (Emmanula et al., 2026).
+2. **The "Human Layer" as an Active Defense Component:** Rather than conceptualizing employees and business operators merely as the "weakest link" in security infrastructure, the Human Firewall paradigm conceptualizes informed individuals as the first line of proactive detection, verification, and containment (Doe, 2024). In Defense-in-Depth, SMEShield operates squarely inside the human layer (Figure 2.1).
+3. **The SME Vulnerability Asymmetry:** While large multinationals and financial institutions possess dedicated Security Operations Centers (SOCs), Chief Information Security Officers (CISOs), and substantial training budgets, Small and Medium Enterprises (SMEs) in developing economies operate with minimal technical staffing, severe capital constraints, and informal digital communication channels (e.g., WhatsApp, personal mobile banking, and Point-of-Sale terminals) (Chidukwani et al., 2022; Auwal & Abiodun, 2025).
+4. **The Behavioral Inoculation Imperative:** Traditional annual compliance lectures fail to induce lasting behavioral habits (Fagbule, 2023). Effective cybersecurity education requires digestible micro-learning, situated contextual scenarios, indigenous linguistic familiarity (Pidgin), and immediate explanatory feedback (Sulaiman et al., 2022; Chowdhury et al., 2022).
 
 ### 1.2 SMEShield as the Practical System Realization
 SMEShield serves as the direct software engineering realization of this academic inquiry. It translates the theoretical principles of the Human Firewall into an empirical, accessible, and culturally contextualized educational web application:
-- **Diagnostic Vulnerability Profiling:** Evaluating incoming baseline security awareness before formal training.
+- **Diagnostic Vulnerability Profiling:** Evaluating incoming baseline security awareness before formal training across core Nigerian SME threats.
 - **Contextualized Behavioral Inoculation:** Training learners across 15 threats pervasive in the Nigerian SME commercial ecosystem (e.g., POS terminal tampering, fake bank credit alerts, WhatsApp Business account takeovers, SIM swap identity theft, and Business Email Compromise).
-- **Dual-Language Accessibility:** Eradicating linguistic and comprehension barriers by providing complete lesson protocols and scenario quizzes in both standard English and Nigerian Pidgin.
-- **Empirical Measurement:** Calculating an objective, dual-factor **Human Firewall Score (HFS)** that mathematically weighs curriculum completion breadth (35%) alongside validated quiz assessment performance (65%).
+- **Dual-Language Accessibility:** Eradicating linguistic and comprehension barriers by providing complete lesson protocols and scenario quizzes in both standard English and Nigerian Pidgin (Osabutey & Jackson, 2024).
+- **Empirical Progress Measurement:** Calculating an objective, dual-factor **Human Firewall Score (HFS)** that mathematically weighs curriculum completion breadth (35%) alongside validated quiz assessment performance (65%).
 
 ---
 
 ## Section 2: Research Gap, Systematic Contribution Chain, & Source Map
 
 ### 2.1 The Systematic Research-Alignment Chain
-To ensure logical rigor throughout Chapters 1 to 5, Claude AI must structure the dissertation arguments around the following explicit contribution chain:
+To ensure logical rigor throughout Chapters 1 to 5, Claude AI must structure the dissertation arguments around the following explicit, supervisor-aligned contribution chain:
 
 ```
-Research Gap
-  ↓ (Linguistic alienation, static curricula, enterprise bias in SAT tools)
-Problem Statement
-  ↓ (Nigerian SMEs suffer heavy financial fraud via social engineering with no accessible, indigenous training)
-Aim
-  ↓ (Design and implement an empirical, web-based bilingual and adaptive training and self-assessment platform)
-One Broad Aim
-  ↓ (Design and implement an empirical, web-based bilingual and adaptive training and self-assessment platform)
-Five SMART Objectives (Design, Develop, Implement, Evaluate)
-  ↓ (Architecture & RBAC, Bilingual Curriculum & Quizzes, Adaptive Engine, HFS & Progress, Evaluation & Monitoring)
-Implemented Solution
-  ↓ (Next.js 16 App Router, Supabase PostgreSQL RLS, 15 bilingual modules, 75 quiz items, deterministic adaptive engine)
-Testing Evidence
+Research Background
+  ↓ (Rapid SME digital adoption, ₦52.26B losses, human operator vulnerability)
+Identified Practical Problem
+  ↓ (Resource-constrained SMEs lack training; enterprise tools are unaffordable, English-only, and rigid)
+Literature-Supported Research Gap (Chapter 2, Section 2.5)
+  ↓ (1. Enterprise budget/IT assumptions; 2. Absence of Nigerian Pidgin; 3. Lack of business-type adaptivity for 1-2 person shops; commercial market failure)
+Project Aim (Chapter 1, Section 1.3)
+  ↓ (Design and implement a web-based, bilingual, and adaptive cybersecurity awareness training and self-assessment platform for SMEs in Nigeria)
+Five Approved Objectives (Chapter 1, Section 1.3)
+  ↓ (1. Interactive Web Platform; 2. Bilingual Content Delivery; 3. Adaptive Mechanism; 4. Role-Based Access; 5. Progress Dashboards & HFS)
+Proposed Design (Chapter 3 OOAD Models)
+  ↓ (UML Use Case, Activity, Sequence, Class diagrams, 3-tier architecture, preliminary schema)
+Final Implementation (Chapter 4)
+  ↓ (Next.js 16 App Router, Supabase PostgreSQL, 9-table schema, 15 modules, 75 quiz questions, adaptive engine, join codes, HFS)
+Testing Evidence (Chapter 4)
   ↓ (TC-01 to TC-19, 100% bilingual parity, build exit code 0, clean lint, 29 academic figures, live Vercel deployment)
-Contributions
+Contributions & Realization (Chapter 5)
   ↓ (SME-tailored curriculum, Nigerian Pidgin localization, transparent adaptive sequencing, empirical HFS metric)
-Limitations & Academic Honesty
-    (Educational performance indicator vs. network telemetry; non-causal delta; separate admin architecture)
+Academic Honesty & Limitations (Chapter 1, Section 1.6 & Chapter 5)
+    (Educational indicator vs. network telemetry; non-causal delta; separate developer backend content management)
 ```
 
 ### 2.2 Detailed Source Map for Claude AI
-When authoring or revising sections of the dissertation, Claude AI must consult the authoritative data sources mapped below. Do not manufacture scholarly claims or attribute system specifications to unverified literature.
+When authoring Chapters 4 and 5 or making minimal corrections to Chapters 1–3, Claude AI must consult the authoritative data sources mapped below:
 
-| Research Dimension | Core Academic / System Claim | Required Source Document | Verification Evidence |
+| Research Dimension | Core Academic / System Claim | Authoritative Source Document | Verification Evidence |
 | :--- | :--- | :--- | :--- |
-| **Theoretical Foundation** | The Human Firewall paradigm, social engineering threat prevalence (85–90%), human-as-sensor security philosophy. | Precursor Seminar Report (*"The Human Firewall: Rethinking Network Security Principles Beyond Technology"*). | Seminar manuscript; Chapter 1 & 2 drafts. |
-| **Macro-Economic Context** | Nigerian SME GDP contribution (~50%), SME share of businesses (96%+), employment generation. | Scholarly literature, SMEDAN/NBS survey reports, Chapter 1 background. | Official citations in Project References. |
-| **Threat Landscape** | NIP instant transfer fraud, fake credit alert scams, POS skimming, WhatsApp business hijacking, SIM swap attacks. | Nigeria Computer Emergency Response Team (ngCERT) advisories; Central Bank of Nigeria (CBN) fraud reports. | Literature citations; Section 6 module inventory. |
-| **Literature Gap** | Absence of Nigerian Pidgin in SAT systems, Western enterprise bias of tools (KnowBe4, Infosec IQ), static curriculum sequencing. | Chapter 2 Literature Review; candidate comparative audit. | Chapter 2 comparative tables; Handoff Section 2. |
+| **Approved Baseline** | Project Aim, 5 Objectives, 5 Research Questions, Scope, 5 Limitations, Definition of Terms. | Approved Manuscript Chapter 1 (Pages 13–21). | Approved PDF (July 2026); Section 1.3. |
+| **Theoretical Foundation** | Protection Motivation Theory, Adaptive Learning Theory, Defense-in-Depth, Zero Trust, Human Firewall. | Approved Manuscript Chapter 2 (Pages 22–26); Precursor Seminar Report. | Citations: Almansoori et al. (2023), Sulaiman et al. (2022), Zaman & Akhter (2023), Kang et al. (2023), Doe (2024). |
+| **Literature Gap** | 1. Enterprise IT bias; 2. Absence of Nigerian Pidgin; 3. Lack of business-type adaptivity for 1–2 person shops; Commercial market failure rationale. | Approved Manuscript Chapter 2 Section 2.5 (Page 30–31). | Table 2.1 (KnowBe4, SANS, SMEShield); Osabutey & Jackson (2024). |
+| **System Methodology** | Object-Oriented Analysis and Design (OOAD) for solo developer; UML modeling sequence. | Approved Manuscript Chapter 3 Section 3.1 (Page 34–35). | Conallen (1999); Rindell et al. (2021). |
 | **System Architecture** | Next.js 16 App Router, React 19, Supabase PostgreSQL, RLS policies, `@supabase/ssr` auth bridge. | Actual Next.js Codebase & Supabase Migrations. | `docs/academic_evidence_report.md` (Sections 2 & 3); `package.json`. |
 | **Curriculum Inventory** | 15 modules, 75 scenario quiz questions, 100% EN/PCM parity, $\ge 700$ characters depth. | Supabase database records; Migration SQL files. | TC-01 to TC-05; `scripts/verify_phase4.mjs`. |
-| **Adaptive Algorithm** | Deterministic rule-based scoring: $\text{Base}(10) + \text{WeakArea}(+20) + \text{SectorMatch}(+10)$, completed exclusion, order tie-break. | `src/lib/adaptive-engine.ts`. | TC-06; unit execution logs. |
+| **Adaptive Algorithm** | Deterministic rule-based scoring: $\text{Base}(10) + \text{WeakArea}(+20) + \text{SectorMatch}(+10)$, completed exclusion, order tie-break. | `src/lib/adaptive-engine.ts`. | TC-06; algorithmic unit execution logs. |
 | **HFS Formulation** | Dual-factor formula: $\text{round}(\text{comp}\% \times 0.35 + \text{quiz\_avg} \times 0.65)$, awareness tiers (Developing, Aware, Strong, Highly Aware). | `src/app/dashboard/page.tsx`, `DashboardViews.tsx`. | TC-07 to TC-09; formula boundary tests. |
 | **System Verification** | 19 formal test cases, Turbopack clean compile across 32 routes, zero ESLint errors/warnings. | Test scripts, build logs, ESLint report. | `docs/academic_evidence_report.md` (Table 4.1); TC-01 to TC-19. |
 | **Visual Interfaces** | 29 academic figures across 9 Chapter 4 subsections, 8 public tour assets, 2 verified responsive viewports. | `docs/report_figures/`, `public/assets/smeshield/tour/`. | `docs/academic_screenshot_manifest.json`; contact sheet. |
 | **Statutory Framework** | Nigeria Data Protection Act (NDPA) 2023 statutory principles (data minimization, purpose limitation, user consent). | NDPA 2023 Gazette; `src/app/(public)/privacy/page.tsx`. | TC-18; legal terms and privacy statements. |
 
-### 2.3 Academic Contributions of SMEShield
-1. **Practical Contribution:** Provides an enterprise-grade, cost-free, zero-infrastructure cybersecurity training platform tailored specifically for Nigerian micro and small business operators.
-2. **Pedagogical & Linguistic Contribution:** Demonstrates the first systematic integration of Nigerian Pidgin alongside English across 100% of curriculum modules and assessment items, validating indigenous language localization in technical cybersecurity education.
-3. **Algorithmic Contribution:** Formulates a deterministic, transparent, and computationally parsimonious recommendation model that solves the cold-start problem for low-resource SMEs without opaque machine learning models.
-4. **Metric Contribution:** Introduces the dual-factor Human Firewall Score (HFS) as a balanced indicator of security awareness breadth and demonstrated scenario mastery.
+---
+
+## Section 3: Project Aim & The Five Approved Academic Objectives
+
+The project aim and five specific objectives approved by the candidate's supervisor (**Dr. Mrs. Chika Lillian Onyagu**) in Section 1.3 of Chapter 1 are reproduced below verbatim:
+
+### 3.1 The Approved Aim (Verbatim)
+> **"The aim of this study is to design and implement a web-based, bilingual, and adaptive cybersecurity awareness training and self-assessment platform for SMEs in Nigeria."**
+
+### 3.2 The Five Approved Specific Objectives & Implementation Mapping
+
+#### OBJECTIVE 1: Web-Based Interactive Cybersecurity Training Platform
+> **Approved Objective 1 Text:**  
+> *"Develop a web-based platform that delivers structured, interactive cybersecurity awareness training to registered SME users within the project period."*
+
+- **How the Implementation Demonstrates This Objective:**
+  - **Modern Full-Stack Web Platform:** Built using Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS, providing an accessible, responsive web interface requiring zero local software installation.
+  - **Secure User Registration:** Supabase Auth integration supporting self-registration, credential encryption, password masking, and immediate session issuance across desktop and mobile browsers.
+  - **Structured Cybersecurity Curriculum:** 15 comprehensive curriculum modules organized by pervasive Nigerian SME threat vectors (phishing, fake payment alerts, ransomware, WhatsApp hijacking, USB malware, SIM swap fraud, POS fraud, credential hygiene, unpatched systems, public Wi-Fi risks, BEC, cloned web stores, voice vishing, quishing, and device physical security).
+  - **Interactive Learning Delivery:** Dedicated lesson interface (`/training/[id]/lesson`) featuring structured pedagogical components: threat overview, practical Nigerian attack scenario, defensive rules, and summary key takeaways.
+  - **Persistent Learning Ledgers:** PostgreSQL `public.user_progress` table recording enrollment, lesson interaction, and completion timestamps.
+- **Traceable Deliverables:** Next.js 16 web application codebase, 15 curriculum modules (`public.modules`), interactive lesson viewer, and public production deployment at `https://sme-shield-mvp.vercel.app`.
+- **Supporting Test Evidence:** **TC-01** (15 modules inventory), **TC-15** (unauthenticated route defense), **TC-16** (responsive layout fidelity), **TC-17** (15 local photography assets), **TC-18** (ESLint code standards), **TC-19** (32-route clean Turbopack build).
+- **Chapter 5 Evaluation:** Section 5.1.1 (*Realization of Objective 1: Development of the Web-Based Training Platform*).
 
 ---
 
-## Section 3: Project Aim & The Five SMART Objectives (Institutional Alignment)
+#### OBJECTIVE 2: Bilingual Content Delivery System
+> **Approved Objective 2 Text:**  
+> *"Design a bilingual content delivery system that presents all training modules in both Standard English and Nigerian Pidgin, with user-selectable language at any point."*
 
-According to Section 1.3 of the official Delta State University Final Year Project Guide:
-> **"1.3 Aim and Objectives:** One broad aim, followed by three to five SMART objectives (specific, measurable, achievable, relevant, time-bound) using verbs such as design, develop, implement, evaluate. Every objective must be traceable to a deliverable and revisited in Chapter Five."
+- **How the Implementation Demonstrates This Objective:**
+  - **Complete Bilingual Curriculum Parity:** 100% of all 15 modules provide exhaustive, professionally translated instructional content in both Standard English and Nigerian Pidgin (`title_en`/`title_pcm`, `description_en`/`description_pcm`, `content_en`/`content_pcm`, `scenario_en`/`scenario_pcm`, `key_takeaways_en`/`key_takeaways_pcm`).
+  - **Depth and Rigor:** Content fields enforce a strict academic standard of $\ge 700$ characters per language (averaging 2,410 characters per module), preventing superficial translations.
+  - **Bilingual Scenario Assessment Bank:** 75 scenario-based quiz questions (exactly 5 per module) with complete bilingual stems, 4 options each in English and Pidgin (`options_en`, `options_pcm`), and comprehensive educational feedback explanations (`explanation_en`, `explanation_pcm`).
+  - **Real-Time User-Selectable Language:** Implemented via client-side `LanguageContext` state provider with prominent navigation toggles, allowing instantaneous switching between English and Pidgin at any point during reading, quiz taking, or dashboard review without session interruption.
+  - **Linguistic Scrutiny & Academic Boundary:** The implementation empirically confirms *structural bilingual completeness* (database parity and toggle functionality). Independent psychometric and sociolinguistic validation of dialectal variations is acknowledged as an academic research boundary (as noted in Chapter 1 Limitation III).
+- **Traceable Deliverables:** Dual-language database schema (`modules`, `quiz_questions`, `baseline_questions`), `LanguageContext` provider, and verified localized photography assets.
+- **Supporting Test Evidence:** **TC-03** (100% title and description parity), **TC-04** (content length $\ge 700$ characters), **TC-05** (quiz options and explanations parity across 75 questions). Visual proof: Figure 4.22 (`training_lesson_english.png`) and Figure 4.23 (`training_lesson_pidgin.png`) with distinct SHA-256 hashes.
+- **Chapter 5 Evaluation:** Section 5.1.2 (*Realization of Objective 2: Bilingual Content Delivery System*).
 
-### 3.1 The Broad Aim
-The primary aim of this project is to **design and implement a web-based, bilingual, and adaptive cybersecurity awareness training and self-assessment platform (SMEShield)** to strengthen the human firewall security posture of Small and Medium Enterprises (SMEs) in Nigeria against social engineering threats and digital financial fraud.
+---
 
-### 3.2 The Five SMART Objectives
-In strict conformance with the institutional guidelines, the project defines **exactly five SMART objectives** using the mandated action verbs (*Design*, *Develop*, *Implement*, *Evaluate*). Every objective produces a concrete, verified system deliverable and is systematically revisited and evaluated in Chapter Five:
+#### OBJECTIVE 3: Adaptive Training and Assessment Mechanism
+> **Approved Objective 3 Text:**  
+> *"Implement an adaptive training and assessment mechanism that sequences modules based on the user’s business type and self-assessment performance, using a minimum five-question adaptive quiz per module."*
 
-1. **Objective 1 (Design — Architecture, Relational Schema, & RBAC Model):**  
-   **To design** a secure, multi-tenant web architecture, relational database schema (comprising nine PostgreSQL tables), and role-based access control (RBAC) model supporting Business Owners, Employees, and Sole Entrepreneurs with complete tenant data isolation, server-side route guards, and low-friction 6-digit organization join codes.  
-   - *SMART Formulation:* Specific architecture and schema; Measurable by 0 cross-tenant data leakage and strict route blocking; Achievable via Next.js 16 and Supabase RLS; Relevant to informal Nigerian SME workplace realities; Time-bound to Phase 1/2 development.  
-   - *Traceable Deliverables:* 3-tier architecture model, 9-table schema dictionary, PostgreSQL RLS policies, middleware route guards (`src/proxy.ts`), and 6-digit join code association flow.  
-   - *Revisited in Chapter Five:* Section 5.1.1 (*Realization of Objective 1: Architectural & Multi-Role Design*).
+- **How the Implementation Demonstrates This Objective:**
+  - **Business-Type Classification:** Captures enterprise sector during onboarding across 8 defined Nigerian commercial categories (`pos`, `retail`, `tech`, `school`, `fashion`, `food`, `professional`, `general`).
+  - **Diagnostic Baseline Self-Assessment:** 5-question pre-training diagnostic assessment (`/assessment`, `public.baseline_questions`) administered during onboarding to establish entry-level awareness and identify threat vulnerabilities.
+  - **Diagnostic Weak Area Extraction:** Stores failed threat categories in `baseline_results.weak_areas` JSONB array.
+  - **Deterministic Recommendation Engine:** Server-side function (`getRecommendedModules` in `src/lib/adaptive-engine.ts`) executing a transparent, explainable scoring formula:
+    $$\text{Score}(m) = \text{Base}(10) + \text{WeakAreaBonus}(+20) + \text{SectorMatchBonus}(+10)$$
+  - **Completed Module Exclusion:** Excludes previously completed modules (`user_progress.status = 'completed'`) from recommendations to maintain forward learning momentum.
+  - **Standardized Five-Question Mastery Assessment:** Exactly 5 scenario questions per module (75 questions across 15 modules), enforcing a strict $\ge 80\%$ passing threshold (4 out of 5 correct) before marking a module completed.
+- **Critical Academic Nuance & Clarification for Objective 3:**
+  > [!NOTE]
+  > **Minor Academic Clarification (Category B):**  
+  > The candidate's approved Objective 3 states: *"using a minimum five-question adaptive quiz per module."*  
+  > In the verified system implementation, adaptation operates at the **curriculum module recommendation sequencing level** (prioritizing modules based on business type and baseline diagnostic weaknesses). Within each module, quizzes maintain a **fixed, standardized bank of 5 scenario-based questions** to guarantee psychometric measurement consistency across all learners, rather than dynamically branching individual questions mid-quiz.  
+  > **Claude AI Directive:** Do **NOT** alter the approved wording of Objective 3 in Chapter 1. In Chapters 3 (Section 3.3.2) and 4 (Section 4.2.7), accurately explain this technical distinction: the adaptive mechanism governs curriculum pathway sequencing, while the quizzes enforce standardized 5-item competency evaluation.
+- **Traceable Deliverables:** Server recommendation engine (`src/lib/adaptive-engine.ts`), baseline diagnostic questionnaire, 75 quiz questions, and 80% passing evaluation gate (`/api/quiz/submit`).
+- **Supporting Test Evidence:** **TC-02** (75 quiz questions inventory, 5 per module), **TC-06** (adaptive weighting algorithm execution), **TC-10** (80% passing threshold enforcement).
+- **Chapter 5 Evaluation:** Section 5.1.3 (*Realization of Objective 3: Adaptive Training and Assessment Mechanism*).
 
-2. **Objective 2 (Develop — Bilingual Curriculum & Scenario Assessment System):**  
-   **To develop** a culturally situated, bilingual content delivery and scenario-based assessment framework comprising 15 Nigerian workplace threat modules and a 75-question scenario quiz bank with 100% parity across English and Nigerian Pidgin, enforcing a strict 80% passing threshold for competency certification.  
-   - *SMART Formulation:* Specific 15-module curriculum and 75 scenario questions; Measurable by 100% EN/PCM parity, $\ge 700$ characters depth, and $\ge 80\%$ quiz passing threshold; Achievable with verified vernacular translation and localized photography; Relevant to non-technical SME workers; Time-bound to Phase 2/3.  
-   - *Traceable Deliverables:* 15 bilingual modules (`content_en`, `content_pcm`), 75 bilingual quiz items with educational rationales, and real-time `LanguageContext` state toggle.  
-   - *Revisited in Chapter Five:* Section 5.1.2 (*Realization of Objective 2: Bilingual Curriculum & Assessment Engine*).
+---
 
-3. **Objective 3 (Implement — Deterministic Adaptive Recommendation Engine):**  
-   **To implement** a deterministic, rule-based adaptive learning recommendation engine that dynamically prioritizes and sequences curriculum modules according to SME commercial sector risk profiles and individual diagnostic weaknesses identified during initial baseline profiling.  
-   - *SMART Formulation:* Specific weighting formula $R(m) = 10 \text{ (base)} + 20 \text{ (weakness)} + 10 \text{ (sector)}$; Measurable by priority elevation for weak areas and active exclusion of completed units; Achievable via TypeScript server logic; Relevant to cold-start low-resource SMEs; Time-bound to Phase 3.  
-   - *Traceable Deliverables:* Server-side recommendation engine (`src/lib/adaptive-engine.ts`), baseline weak area extractor, and sector tag matching matrix.  
-   - *Revisited in Chapter Five:* Section 5.1.3 (*Realization of Objective 3: Deterministic Adaptive Recommendation Engine*).
+#### OBJECTIVE 4: Role-Based User Management System
+> **Approved Objective 4 Text:**  
+> *"Build a role-based user management system with differentiated access and permissions for the three user categories: Business Owner, Employee, and Sole Entrepreneur."*
 
-4. **Objective 4 (Implement — Empirical Human Firewall Scoring & Progress Tracking):**  
-   **To implement** an empirical progress-tracking and scoring engine that computes a dual-factor Human Firewall Score (HFS) weighting curriculum completion breadth (35%) against validated scenario quiz mastery (65%), categorizing learners into four defined security awareness tiers.  
-   - *SMART Formulation:* Specific dual-factor formula; Measurable via mathematical boundary validation ($0, 100, 87, 63$) and baseline delta tracking ($\Delta_{\text{Awareness}} = \text{HFS} - \text{Baseline}$); Achievable via PostgreSQL progress ledgers; Relevant to objective organizational benchmarking; Time-bound to Phase 3.  
-   - *Traceable Deliverables:* HFS calculation engine, awareness classification system (Developing, Aware, Strong, Highly Aware), baseline benchmark comparator, and learner progress ledger (`/dashboard/progress`).  
-   - *Revisited in Chapter Five:* Section 5.1.4 (*Realization of Objective 4: Empirical Human Firewall Scoring & Progress Tracking*).
+- **How the Implementation Demonstrates This Objective:**
+  - **Three Evaluated User Roles:** Full implementation of exactly three user roles tailored to the Nigerian SME commercial ecosystem:
+    1. **Business Owner (`business_owner`):** Registers SME enterprise, generates staff join codes, monitors collective team awareness, inspects employee drill-downs, and exports compliance audit reports.
+    2. **Employee (`employee`):** Enrolls under an existing business via join code, takes baseline diagnostic, completes recommended modules, and tracks personal mastery.
+    3. **Sole Entrepreneur (`sole_entrepreneur`):** Operates autonomously without organizational overhead or staff management views, focusing directly on personal threat inoculation (POS operators, market traders).
+  - **Role-Specific Onboarding:** Customized onboarding wizard (`/onboarding`) dynamically rendering enterprise setup for owners, join-code linking for employees, and immediate diagnostic routing for sole traders.
+  - **Zero-Friction 6-Digit Join Code:** Business creation automatically generates a persistent 6-digit alphanumeric code (`businesses.join_code`) enabling staff self-association with instant business name verification.
+  - **Server-Side Route Protection & RBAC:** Middleware route guards ([src/proxy.ts](file:///c:/Users/Paul/Desktop/CODES/SMEShield/src/proxy.ts)) and server components intercept unauthorized navigation (e.g., employees and sole entrepreneurs requesting `/dashboard/team` are redirected with HTTP 307 to `/dashboard`).
+  - **PostgreSQL Row-Level Security (RLS):** Strict database-level isolation policies ensuring Business Owner A cannot view or access data belonging to Business Owner B.
+  - **Architectural Scope Boundary:** Content management and publishing is carried out directly by the developer through backend migrations and database seeding, without an in-app system administrator role, exactly as specified in Chapter 1 Scope Limitation V and Chapter 3 Section 3.4.
+- **Traceable Deliverables:** User management subsystem, 6-digit join code linking engine, Supabase RLS security policies, and middleware route guards.
+- **Supporting Test Evidence:** **TC-11** (employee route protection), **TC-12** (sole entrepreneur route protection), **TC-13** (business owner cross-tenant RLS isolation), **TC-14** (6-digit join code association runtime test).
+- **Chapter 5 Evaluation:** Section 5.1.4 (*Realization of Objective 4: Role-Based User Management System*).
 
-5. **Objective 5 (Evaluate — Performance, Workforce Monitoring, & Edge Deployment):**  
-   **To evaluate** the functional performance, multi-role usability, responsive execution, and organizational compliance monitoring of the platform through automated technical testing (19 formal test cases), Business Owner administrative tools (readiness tracking and live CSV audit export), and production edge deployment.  
-   - *SMART Formulation:* Specific end-to-end evaluation suite and team monitoring tools; Measurable by 18 automated check passes, clean Next.js Turbopack build across 32 routes, 0 ESLint errors/warnings, and live HTTPS responses; Achievable with automated test runners and Vercel edge infrastructure; Relevant to operational reliability and NDPA compliance audits; Time-bound to Phase 4 / Final.  
-   - *Traceable Deliverables:* Business Owner workforce portal (`/dashboard/team`), CSV export API (`/api/export-csv`), 19-point academic test suite (TC-01 to TC-19), 29 verified academic figures, and active production deployment (`https://sme-shield-mvp.vercel.app`).  
-   - *Revisited in Chapter Five:* Section 5.1.5 (*Realization of Objective 5: Technical Verification, Monitoring, and Deployment*).
+---
 
-### 3.3 Authoritative Technical-to-SMART Objectives Mapping Matrix
-For complete academic traceability, Table 3.1 details how earlier granular technical requirements (from PRD v2.0) synthesize directly into the Five Approved SMART Objectives:
+#### OBJECTIVE 5: Progress-Tracking Dashboards
+> **Approved Objective 5 Text:**  
+> *"Design progress-tracking dashboards for both individual users and Business Owners to monitor completed modules, quiz scores, and overall training performance of linked employees."*
 
-| SMART Objective | Mandated Action Verb | Core Educational Subsystem | Harmonized Granular Technical Items | Primary Database Tables | Primary Verification Evidence |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Objective 1** | **Design** | Architecture, Relational Schema, Multi-Role RBAC & Join Codes | Web platform architecture & multi-role access control. | `businesses` (`join_code`), `users`, `employee_invites`, RLS policies | **TC-11, TC-12, TC-13, TC-14, TC-15**; Figures 4.3–4.9, 4.18, 4.29; 9-table schema dictionary. |
-| **Objective 2** | **Develop** | Bilingual Curriculum & Scenario Assessment System | Bilingual content delivery & 80% passing mastery framework. | `modules` (`content_en`, `content_pcm`), `quiz_questions`, `baseline_questions` | **TC-01, TC-02, TC-03, TC-04, TC-05, TC-10, TC-17**; Figures 4.10, 4.20–4.27; Table 6.1 curriculum audit. |
-| **Objective 3** | **Implement** | Deterministic Adaptive Recommendation Engine | Adaptive module sequencing algorithm. | `modules.business_type_tags`, `baseline_results.weak_areas`, `user_progress.status` | **TC-06**; algorithmic unit test; Figures 4.8, 4.13, 4.20; pseudocode. |
-| **Objective 4** | **Implement** | Empirical Human Firewall Scoring & Progress Tracking | Dual-factor HFS calculation and awareness categorization. | `user_progress`, `assessment_results`, `baseline_results` | **TC-07, TC-08, TC-09**; formula boundary tests ($0, 100, 87, 63$); Figures 4.11, 4.12, 4.19, 4.28. |
-| **Objective 5** | **Evaluate** | Technical Verification, Workforce Monitoring & Deployment | Organizational monitoring interface, test suite & production build. | `businesses`, `users`, `user_progress`, `employee_invites`, Next.js routes | **TC-16, TC-18, TC-19**; Figures 4.1, 4.14–4.17; Turbopack build exit code 0; live Vercel deployment. |
+- **How the Implementation Demonstrates This Objective:**
+  - **Individual Learner Dashboards:** Dedicated learner portal (`/dashboard`, `/dashboard/progress`) displaying completed module counts, quiz average, assigned training priorities, and an auditable progress ledger.
+  - **Executive Business Owner Dashboard:** Command center (`/dashboard`, `/dashboard/team`) providing real-time visibility into overall organizational readiness, total enrolled employees, team average quiz scores, and pending staff invitations.
+  - **Employee Performance Drill-Down:** Dedicated staff inspection view (`/dashboard/team/[id]`) allowing owners to review individual employee quiz scores, passed modules, and diagnostic weak areas.
+  - **Workforce Audit Compliance Export:** Authenticated CSV export endpoint (`/api/export-csv`) enabling owners to download full staff compliance reports for regulatory or internal auditing.
+  - **Human Firewall Score (HFS) as Supporting Analytical Feature:**
+    > [!IMPORTANT]
+    > **HFS Architectural Framing:**  
+    > The Human Firewall Score is a **key analytical feature supporting Objective 5**, NOT an independent academic objective. It provides an empirical mathematical basis for dashboard dials and team aggregation by combining training completion breadth ($35\%$) and quiz mastery average ($65\%$):
+    > $$\text{HFS} = \text{round}\left((\text{Completion Rate} \times 0.35) + (\text{Average Quiz Score} \times 0.65)\right)$$
+    > Learners are mapped into four awareness tiers: *Developing* ($<50$), *Aware* ($50-69$), *Strong* ($70-84$), and *Highly Aware* ($\ge 85$).
+  - **Baseline Benchmark Delta Tracking:** Displays awareness progression ($\Delta_{\text{Awareness}} = \text{HFS} - \text{Baseline}$) to highlight training advancement without conflating baseline diagnostic scores with composite HFS mastery.
+- **Traceable Deliverables:** Learner dashboard (`/dashboard`), Business Owner command center, team roster portal (`/dashboard/team`), employee drill-down modal, CSV export API, and HFS computation module.
+- **Supporting Test Evidence:** **TC-07** (HFS dual-factor mathematical validation), **TC-08** (baseline improvement delta calculation), **TC-09** (awareness tier label mapping), **TC-13** (owner team roster visibility), **TC-16** (dashboard multi-breakpoint responsive execution).
+- **Chapter 5 Evaluation:** Section 5.1.5 (*Realization of Objective 5: Progress-Tracking Dashboards*).
+
+---
+
+### 3.3 Authoritative Five-Objective Traceability Matrix
+Table 3.1 synthesizes the complete traceability between the five approved academic objectives, implemented software subsystems, database entities, test cases, and dissertation chapters:
+
+| Approved Objective | Core Subsystem | Implementation Deliverables | Database Tables | Supporting Test Cases | Chapter 4 Figures | Chapter 5 Realization Section |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Objective 1:** Web-Based Training Platform | Next.js 16 Web Application & Curriculum Engine | 15 modular courses, interactive lesson viewer, public How It Works tour, responsive UI, edge deployment. | `modules`, `user_progress` | **TC-01, TC-15, TC-16, TC-17, TC-18, TC-19** | Figures 4.1, 4.2, 4.20, 4.22, 4.24 | **Section 5.1.1** |
+| **Objective 2:** Bilingual Content Delivery | Real-Time Bilingual Delivery System | 15 enriched modules and 75 quiz questions with 100% EN/PCM parity, $\ge 700$ chars depth, `LanguageContext` toggle. | `modules` (`_en`/`_pcm`), `quiz_questions`, `baseline_questions` | **TC-03, TC-04, TC-05** | Figures 4.10, 4.22, 4.23 | **Section 5.1.2** |
+| **Objective 3:** Adaptive Training & Assessment | Deterministic Recommendation & Mastery Engine | Baseline diagnostic (5 questions), sector tagging (8 sectors), recommendation algorithm ($10+20+10$), 80% passing gate. | `baseline_questions`, `baseline_results`, `quiz_questions`, `assessment_results` | **TC-02, TC-06, TC-10** | Figures 4.8, 4.10, 4.13, 4.25, 4.27 | **Section 5.1.3** |
+| **Objective 4:** Role-Based User Management | RBAC, Join Code & Multi-Tenant Security | 3 user roles, 6-digit persistent join code linking, middleware route guards (`src/proxy.ts`), PostgreSQL RLS policies. | `users`, `businesses`, `employee_invites`, RLS policies | **TC-11, TC-12, TC-13, TC-14** | Figures 4.3, 4.4, 4.7, 4.8, 4.9, 4.29 | **Section 5.1.4** |
+| **Objective 5:** Progress-Tracking Dashboards | Individual & Enterprise Dashboards with HFS | Learner dashboard, owner command center, staff roster drill-down, CSV export, dual-factor HFS calculation (35/65). | `user_progress`, `assessment_results`, `baseline_results`, `businesses` | **TC-07, TC-08, TC-09, TC-13, TC-16** | Figures 4.11, 4.12, 4.14, 4.15, 4.18, 4.19, 4.28 | **Section 5.1.5** |exit code 0; live Vercel deployment. |
 
 ---
 
@@ -392,31 +454,29 @@ The platform was formally validated across 19 formal test cases spanning academi
 > - **AUTOMATED BROWSER CAPTURE:** Headless Chrome verification of responsive layouts and visual rendering.  
 > - **DEPLOYED PRODUCTION TEST:** Real-time verification on live Vercel production edge infrastructure.  
 > - **USER MANUAL TEST:** Candidate manual interface and operational walkthrough.  
-> Automated and technical testing must NOT be described as a formal human-subject user study.
+> Automated and technical testing must N### Table 7.1: Master Academic Test Matrix
 
-### Table 7.1: Master Academic Test Matrix
-
-| Test ID | Category | SMART Objective | Description | Verification Method | Condition / Input | Expected Result | Actual Result | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC-01** | Academic Compliance | **Obj 2** (Bilingual Curriculum) | Curriculum Inventory Audit | DATABASE QUERY | Query `public.modules` table count | Exactly 15 active modules | Exactly 15 active modules returned | **PASS** |
-| **TC-02** | Academic Compliance | **Obj 2** (Assessment System) | Quiz Question Inventory Audit | DATABASE QUERY | Query `public.quiz_questions` table | Exactly 75 questions (5/module) | 75 questions confirmed (5 per module) | **PASS** |
-| **TC-03** | Bilingual Training | **Obj 2** (Bilingual Parity) | Title & Description Parity | AUTOMATED TEST | Evaluate EN and PCM fields on 15 modules | 100% non-empty string parity | 15/15 modules have 100% EN/PCM parity | **PASS** |
-| **TC-04** | Bilingual Training | **Obj 2** (Bilingual Depth) | Lesson Content Length Depth | AUTOMATED TEST | Character length on `content_en` & `content_pcm` | $\ge 700$ characters per language | All 15 modules $\ge 700$ chars (avg: 2,410) | **PASS** |
-| **TC-05** | Bilingual Training | **Obj 2** (Assessment Parity) | Quiz Options & Explanations Parity | AUTOMATED TEST | Validate `options_en` (4), `options_pcm` (4), and rationales | Exactly 4 options each, non-empty rationales | 75/75 questions have complete parity | **PASS** |
-| **TC-06** | Adaptive Engine | **Obj 3** (Adaptive Engine) | Recommendation Weighting Execution | AUTOMATED TEST | Simulate baseline weakness and sector match | Base 10 + Weak (+20) + Sector (+10) | Weak areas elevated; completed excluded | **PASS** |
-| **TC-07** | Human Firewall Score| **Obj 4** (HFS Scoring) | HFS Dual-Factor Formula Math | AUTOMATED TEST | Test values: 0/0, 100/100, 100/80, 40/75 | Formula: $\text{round}(\text{comp}\% \times 0.35 + \text{quiz} \times 0.65)$ | $0, 100, 87, 63$ mathematically confirmed | **PASS** |
-| **TC-08** | Human Firewall Score| **Obj 4** (HFS Scoring) | Baseline Improvement Delta | AUTOMATED TEST | Compare HFS against initial baseline score | Real delta when both exist; null if absent | $\Delta = \text{HFS} - \text{Baseline}$; separated benchmark | **PASS** |
-| **TC-09** | Human Firewall Score| **Obj 4** (HFS Scoring) | Awareness Label Mapping | AUTOMATED TEST | Verify score thresholds 90, 80, 60, 30 | Highly Aware ($\ge 85$), Strong, Aware, Developing | Zero instances of deprecated "Expert" label | **PASS** |
-| **TC-10** | Assessment Engine | **Obj 2** (Assessment Mastery) | 80% Passing Threshold Enforcement | AUTOMATED TEST | Quiz scores of 3/5 (60%) vs. 4/5 (80%) | Failed for $<80\%$; Passed for $\ge 80\%$ | Strict 80% passing threshold enforced | **PASS** |
-| **TC-11** | Access Control (RBAC)| **Obj 1** (Multi-Role RBAC) | Employee Team Route Protection | STATIC/CODE INSPECTION | Employee attempts GET `/dashboard/team` | HTTP 307 redirect to `/dashboard` | Server guard intercepts and redirects | **PASS** |
-| **TC-12** | Access Control (RBAC)| **Obj 1** (Multi-Role RBAC) | Sole Entrepreneur Route Protection | STATIC/CODE INSPECTION | Sole Entrepreneur requests `/dashboard/team` | HTTP 307 redirect to `/dashboard` | Server guard intercepts and redirects | **PASS** |
-| **TC-13** | Access Control (RBAC)| **Obj 1** (Tenant Isolation) | Business Owner Cross-Tenant Isolation| DATABASE QUERY | Owner A queries staff belonging to Owner B | Zero records returned via RLS | Isolation enforced by PostgreSQL RLS | **PASS** |
-| **TC-14** | Team Management | **Obj 1** (Join Code Link) | 6-Digit Join Code Organization Link | AUTHENTICATED RUNTIME TEST | Employee inputs valid join code `854735` | Linked to business `DELSU` | Employee successfully associated | **PASS** |
-| **TC-15** | Platform Security | **Obj 1** (Route Defense) | Unauthenticated Route Defense | STATIC/CODE INSPECTION | Unauthenticated request to `/dashboard` | HTTP 307 redirect to `/login` | Intercepted by middleware route guard | **PASS** |
-| **TC-16** | UI & Usability | **Obj 5** (Evaluation & Monitoring)| Multi-Breakpoint Responsive Layout | AUTOMATED BROWSER CAPTURE | Viewport widths: 390×844px (mobile) & 1440×900px (desktop) | Zero horizontal overflow; touch-first UI | Verified across 37 automated screenshot captures | **PASS** |
-| **TC-17** | UI & Usability | **Obj 2** (Curriculum Assets) | Visual Scenario Photography Assets | AUTOMATED TEST | Verify `image_url` on disk for 15 modules | 15 authentic Nigerian images exist on disk | 15/15 image assets verified locally | **PASS** |
-| **TC-18** | Code Quality | **Obj 5** (Evaluation & Lint) | Static Analysis & ESLint Standards | AUTOMATED TEST | Run `npm run lint` (ESLint 9) | Zero syntax or accessibility errors | Clean execution with zero errors/warnings | **PASS** |
-| **TC-19** | System Compilation | **Obj 5** (Evaluation & Deploy) | Full Next.js Turbopack Production Build| DEPLOYED PRODUCTION TEST | Run `npm run build` (Next.js 16.3.4) | 32/32 routes compile cleanly (exit code 0) | Compiled in 14.8s; 32 routes verified | **PASS** |
+| Test ID | Category | Approved Objective | Description | Verification Method | Condition / Input | Expected Result | Actual Result | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-01** | Academic Compliance | **Objective 1** (Web Platform) | Curriculum Inventory Audit | DATABASE QUERY | Query `public.modules` table count | Exactly 15 active modules | Exactly 15 active modules returned | **PASS** |
+| **TC-02** | Academic Compliance | **Objective 3** (Adaptive Assessment) | Quiz Question Inventory Audit | DATABASE QUERY | Query `public.quiz_questions` table | Exactly 75 questions (5/module) | 75 questions confirmed (5 per module) | **PASS** |
+| **TC-03** | Bilingual Training | **Objective 2** (Bilingual Content) | Title & Description Parity | AUTOMATED TEST | Evaluate EN and PCM fields on 15 modules | 100% non-empty string parity | 15/15 modules have 100% EN/PCM parity | **PASS** |
+| **TC-04** | Bilingual Training | **Objective 2** (Bilingual Content) | Lesson Content Length Depth | AUTOMATED TEST | Character length on `content_en` & `content_pcm` | $\ge 700$ characters per language | All 15 modules $\ge 700$ chars (avg: 2,410) | **PASS** |
+| **TC-05** | Bilingual Training | **Objective 2** (Bilingual Content) | Quiz Options & Explanations Parity | AUTOMATED TEST | Validate `options_en` (4), `options_pcm` (4), and rationales | Exactly 4 options each, non-empty rationales | 75/75 questions have complete parity | **PASS** |
+| **TC-06** | Adaptive Engine | **Objective 3** (Adaptive Mechanism) | Recommendation Weighting Execution | AUTOMATED TEST | Simulate baseline weakness and sector match | Base 10 + Weak (+20) + Sector (+10) | Weak areas elevated; completed excluded | **PASS** |
+| **TC-07** | Human Firewall Score| **Objective 5** (Progress Dashboards) | HFS Dual-Factor Formula Math | AUTOMATED TEST | Test values: 0/0, 100/100, 100/80, 40/75 | Formula: $\text{round}(\text{comp}\% \times 0.35 + \text{quiz} \times 0.65)$ | $0, 100, 87, 63$ mathematically confirmed | **PASS** |
+| **TC-08** | Human Firewall Score| **Objective 5** (Progress Dashboards) | Baseline Improvement Delta | AUTOMATED TEST | Compare HFS against initial baseline score | Real delta when both exist; null if absent | $\Delta = \text{HFS} - \text{Baseline}$; separated benchmark | **PASS** |
+| **TC-09** | Human Firewall Score| **Objective 5** (Progress Dashboards) | Awareness Label Mapping | AUTOMATED TEST | Verify score thresholds 90, 80, 60, 30 | Highly Aware ($\ge 85$), Strong, Aware, Developing | Zero instances of deprecated "Expert" label | **PASS** |
+| **TC-10** | Assessment Engine | **Objective 3** (Adaptive Assessment) | 80% Passing Threshold Enforcement | AUTOMATED TEST | Quiz scores of 3/5 (60%) vs. 4/5 (80%) | Failed for $<80\%$; Passed for $\ge 80\%$ | Strict 80% passing threshold enforced | **PASS** |
+| **TC-11** | Access Control (RBAC)| **Objective 4** (Role-Based Access) | Employee Team Route Protection | STATIC/CODE INSPECTION | Employee attempts GET `/dashboard/team` | HTTP 307 redirect to `/dashboard` | Server guard intercepts and redirects | **PASS** |
+| **TC-12** | Access Control (RBAC)| **Objective 4** (Role-Based Access) | Sole Entrepreneur Route Protection | STATIC/CODE INSPECTION | Sole Entrepreneur requests `/dashboard/team` | HTTP 307 redirect to `/dashboard` | Server guard intercepts and redirects | **PASS** |
+| **TC-13** | Access Control (RBAC)| **Objective 4 & 5** (Isolation/Oversight)| Business Owner Cross-Tenant Isolation| DATABASE QUERY | Owner A queries staff belonging to Owner B | Zero records returned via RLS | Isolation enforced by PostgreSQL RLS | **PASS** |
+| **TC-14** | Team Management | **Objective 4** (Role-Based Access) | 6-Digit Join Code Organization Link | AUTHENTICATED RUNTIME TEST | Employee inputs valid join code `854735` | Linked to business `DELSU` | Employee successfully associated | **PASS** |
+| **TC-15** | Platform Security | **Objective 1** (Web Platform) | Unauthenticated Route Defense | STATIC/CODE INSPECTION | Unauthenticated request to `/dashboard` | HTTP 307 redirect to `/login` | Intercepted by middleware route guard | **PASS** |
+| **TC-16** | UI & Usability | **Objective 1 & 5** (Platform & Dashboards)| Multi-Breakpoint Responsive Layout | AUTOMATED BROWSER CAPTURE | Viewport widths: 390×844px (mobile) & 1440×900px (desktop) | Zero horizontal overflow; touch-first UI | Verified across 37 automated screenshot captures | **PASS** |
+| **TC-17** | UI & Usability | **Objective 1** (Web Platform) | Visual Scenario Photography Assets | AUTOMATED TEST | Verify `image_url` on disk for 15 modules | 15 authentic Nigerian images exist on disk | 15/15 image assets verified locally | **PASS** |
+| **TC-18** | Code Quality | **Objective 1** (Web Platform) | Static Analysis & ESLint Standards | AUTOMATED TEST | Run `npm run lint` (ESLint 9) | Zero syntax or accessibility errors | Clean execution with zero errors/warnings | **PASS** |
+| **TC-19** | System Compilation | **Objective 1** (Web Platform) | Full Next.js Turbopack Production Build| DEPLOYED PRODUCTION TEST | Run `npm run build` (Next.js 16.3.4) | 32/32 routes compile cleanly (exit code 0) | Compiled in 14.8s; 32 routes verified | **PASS** |
 
 ---
 
@@ -448,7 +508,7 @@ Claude AI **must NOT force all 29 screenshots into the main body of Chapter 4**.
 | **Figure 4.9** | `onboarding_employee_join_code.png` | `/onboarding` (Step 2) | Employee | 1440×900 | **4.2.3** (Multi-Role Onboarding Architecture) | Figure 4.9: Employee Workplace Association via Persistent 6-Digit Join Code. | **Chapter 4 Primary** |
 | **Figure 4.10** | `onboarding_baseline_diagnostic.png` | `/assessment` | Learner | 1440×900 | **4.2.4** (Baseline Diagnostic Assessment) | Figure 4.10: Baseline Cybersecurity Assessment questionnaire with Nigerian Pidgin support. | **Chapter 4 Primary** |
 | **Figure 4.11** | `dashboard_business_owner_overview.png`| `/dashboard` | Business Owner | 1440×900 | **4.2.5** (Business Owner Management Portal) | Figure 4.11: Business Owner Command Dashboard displaying Organization Readiness dial. | **Chapter 4 Primary** |
-| **Figure 4.12** | `human_firewall_score_detail.png` | `/dashboard` | Business Owner | 1440×900 | **4.2.5** (Human Firewall Scoring Metrics) | Figure 4.12: Human Firewall Score dial detailing dual-factor calculation metrics. | **Chapter 4 Primary** |
+| **Figure 4.12** | `human_firewall_score_detail.png` | `/dashboard` | Business Owner | 1440×900 | **4.2.5** (Human Firewall Scoring Metrics) | Figure 4.12: Human Firewall Score dial detailing dual-factor calculation metrics (35% completion / 65% quiz mastery). | **Chapter 4 Primary** |
 | **Figure 4.13** | `human_firewall_priority_focus.png` | `/dashboard` | Business Owner | 1440×900 | **4.2.5** (Adaptive Priority Focus) | Figure 4.13: Priority Threat Focus card highlighting high-risk enterprise areas. | **Appendix / Slides** |
 | **Figure 4.14** | `team_roster_overview.png` | `/dashboard/team` | Business Owner | 1440×900 | **4.2.5** (Workforce Readiness & Compliance) | Figure 4.14: Team Management Roster tracking staff compliance and mastery scores. | **Chapter 4 Primary** |
 | **Figure 4.15** | `team_employee_detail_view.png` | `/dashboard/team` | Business Owner | 1440×900 | **4.2.5** (Workforce Readiness & Compliance) | Figure 4.15: Employee Individual Performance Modal with granular score breakdown. | **Appendix / Slides** |
@@ -501,42 +561,48 @@ Claude AI must execute the following structured directives when generating or ed
 
 ### General Manuscript Requirements
 - **Language and Tone:** Formal, grammatically impeccable **British English** (e.g., *programme*, *categorisation*, *prioritise*, *behaviour*, *modelled*).
-- **Format & Citation Style:** Conform strictly to the Delta State University Faculty of Science Final Year Project Guide.
+- **Format & Citation Style:** Conform strictly to the Delta State University Faculty of Computing Final Year Project Guide.
 - **Reference Integrity:** Use the real academic references provided by the candidate; do not invent citations or fabricate authors/journals.
+- **Preservation Principle:** Chapters 1–3 are supervisor-approved. Do not rewrite them; make only minimal, justified corrections as cataloged in `SMEShield_Report_Discrepancy_Audit.md`.
 
 ### Chapter 1: Introduction
-1. **Audit Existing Draft:** Preserve approved title, candidate metadata, and supervisor information.
-2. **Contextualize Problem:** Document the vulnerability of Nigerian SMEs to social engineering, fake alerts, POS tampering, and WhatsApp hijacking.
-3. **Establish Research Gap:** Explain why Western SAT tools (KnowBe4, Infosec IQ) fail in the informal Nigerian economy due to foreign currency pricing, complex IT directory requirements, and standard English corporate language barriers.
-4. **Structure Section 1.3 (Aim and Objectives):** Strictly adhere to Section 1.3 of the Delta State University Final Year Project Guide: present **One Broad Aim** followed by **Five SMART Objectives** using prescribed action verbs (*Design*, *Develop*, *Implement*, *Evaluate*). Trace each objective directly to its deliverable as detailed in Section 3 of this handoff.
-5. **Delineate Boundaries:** Clarify that SMEShield is an educational self-assessment platform, not real-time antivirus or EDR software.
+1. **Preserve Approved Baseline:** Retain approved project title, candidate details, supervisor name, and university.
+2. **Preserve Approved Aim & Five Objectives:** Maintain the approved Section 1.3 text verbatim. Do not substitute alternative technical objectives.
+3. **Contextualize Problem:** Document the vulnerability of Nigerian SMEs to social engineering, fake alerts, POS tampering, and WhatsApp hijacking.
+4. **Preserve Scope & Limitations:** Maintain the 5 approved limitations in Section 1.6 (especially Limitation V regarding developer-side backend content management).
 
 ### Chapter 2: Literature Review
-1. **Theoretical Foundations:** Review the conceptual evolution of the Human Firewall from the candidate's approved seminar paper.
-2. **Threat Telemetry:** Review published statistics on Nigerian cybercrime (CBN fraud annual reports, ngCERT advisories).
-3. **Comparative Systems Audit:** Analyze existing security awareness systems and tabulate their deficiencies regarding low-resource SME operations and Nigerian vernacular support.
-4. **Linguistic Psychology:** Cite research on adult learning theory and mother-tongue / vernacular instruction (Pidgin) in technical comprehension.
-5. **Statutory Landscape:** Review the data protection obligations established by the Nigeria Data Protection Act 2023.
+1. **Preserve Existing Structure:** Retain the conceptual review (CIA Triad, Human Firewall, Adaptive Learning, Bilingual Delivery), theoretical review (Protection Motivation Theory, Adaptive Learning Theory, Zero Trust), and related works.
+2. **Preserve Comparative Table 2.1:** Maintain the comparison between KnowBe4, SANS Security Awareness, and SMEShield.
+3. **Preserve Three Literature Gaps (Section 2.5):** 1. Enterprise IT and budget bias; 2. Absence of Nigerian Pidgin; 3. Lack of business-type adaptivity for 1–2 person shops; commercial market failure explanation.
 
-### Chapter 3: System Design and Methodology
-1. **Design Methodology:** Document the iterative software engineering lifecycle.
-2. **System Architecture:** Reproduce the 3-tier architecture diagram (Presentation, Server Runtime, Supabase Cloud Managed Service).
-3. **Database Design:** Incorporate the complete 9-table Entity-Relationship diagram and authoritative data dictionary from Section 5.
-4. **Adaptive Recommendation Algorithm:** Detail the deterministic mathematical formula ($10 + 20 + 10$), filtering criteria, tie-breaking rules, and TypeScript pseudocode. Emphasize explainability and computational efficiency over opaque machine learning.
-5. **Human Firewall Scoring Formulation:** Present the exact dual-factor mathematical formulation ($\text{comp}\% \times 0.35 + \text{quiz\_avg} \times 0.65$), justify the 35/65 weight balance, and tabulate the four awareness tiers.
+### Chapter 3: System Analysis and Design
+1. **Preserve OOAD Methodology:** Retain Section 3.1 justifying OOAD over Scrum for a solo developer.
+2. **Preserve Existing UML Models:** Retain Figure 3.1 (Use Case), Figure 3.2 (Activity), Figure 3.3 (Sequence), Figure 3.4 (Class), and Figure 3.6 (3-Tier Architecture).
+3. **Clarify Objective 3 Mechanism (Section 3.3.2):** Explicitly explain that adaptive intelligence governs curriculum module recommendation sequencing based on business type and baseline diagnostic weaknesses, while each module features a standardized 5-question scenario assessment enforcing an 80% passing threshold for psychometric consistency.
+4. **Clarify Database Design Note (Section 3.6):** Acknowledge that the 6-entity draft schema presented in Chapter 3 was a preliminary design, successfully expanded into the verified 9-table schema during Chapter 4 implementation.
 
 ### Chapter 4: System Implementation, Testing, and Results
-1. **Implementation Subsystems:** Detail the 9 core implementation subsections (4.2.1 to 4.2.9) corresponding to the screenshot catalog.
-2. **Curriculum & Parity Reporting:** Present the authoritative 15-module curriculum inventory and bilingual question statistics.
-3. **Curated Figure Insertion:** Insert clearly labelled figure placeholders using the **17 Primary Figures** identified in Table 8.1.
-4. **Comprehensive Test Matrix:** Reproduce Table 7.1 documenting all 19 formal test cases (TC-01 through TC-19) mapped to Objectives 1–5 with pass statuses and verification methods.
-5. **Runtime & Build Metrics:** Document the Next.js Turbopack production compilation benchmark (32 routes, clean exit 0) and ESLint audit results.
+1. **Map Implementation to the Five Approved Objectives:**
+   - Section 4.2.1 & 4.2.6: Realization of **Objective 1** (Web-based interactive training platform, 15 modules).
+   - Section 4.2.7: Realization of **Objective 2** (Bilingual content delivery, English/Pidgin parity, toggle).
+   - Section 4.2.3, 4.2.4 & 4.2.7: Realization of **Objective 3** (Adaptive mechanism, baseline diagnostic, sector matching, 75 quiz questions, 80% gate).
+   - Section 4.2.2, 4.2.3 & 4.2.9: Realization of **Objective 4** (Role-based user management, 3 roles, join codes, RLS, route guards).
+   - Section 4.2.5 & 4.2.8: Realization of **Objective 5** (Progress-tracking dashboards, HFS dual-factor metric, owner visibility, CSV export).
+2. **Curated Figure Insertion:** Insert clearly labelled figures using the **17 Primary Figures** from Table 8.1.
+3. **Master Test Matrix:** Reproduce Table 7.1 documenting all 19 formal test cases mapped to Approved Objectives 1–5.
+4. **Runtime & Build Metrics:** Document Next.js Turbopack clean compilation (32 routes, exit code 0) and zero ESLint errors/warnings.
 
 ### Chapter 5: Discussion, Objectives Realization, and Conclusion
-1. **Objectives Realization Audit:** Structure Section 5.1 as a rigorous objective-by-objective evaluation demonstrating how every one of the **Five SMART Objectives** (Section 5.1.1 to 5.1.5) was successfully accomplished, directly referencing its traceable deliverable and empirical test evidence.
-2. **Discussion of Findings:** Analyze the educational implications of deterministic adaptive sequencing and bilingual micro-learning.
-3. **Critical Limitations:** Honestly articulate the distinction between baseline diagnostic and HFS metrics, the educational boundary vs. operational attack simulations, and the architectural separation of the administrative portal.
-4. **Recommendations for Future Research:** Propose automated WhatsApp micro-learning delivery, native mobile push notifications, and voice-synthesized audio Pidgin narration.
+1. **Objectives Realization Structure (Section 5.1):** Structure Section 5.1 around the **Five Approved Objectives**:
+   - **Section 5.1.1:** Realization of Objective 1 (Web-Based Interactive Training Platform).
+   - **Section 5.1.2:** Realization of Objective 2 (Bilingual Content Delivery System).
+   - **Section 5.1.3:** Realization of Objective 3 (Adaptive Training and Assessment Mechanism).
+   - **Section 5.1.4:** Realization of Objective 4 (Role-Based User Management System).
+   - **Section 5.1.5:** Realization of Objective 5 (Progress-Tracking Dashboards and Human Firewall Score).
+2. **Discussion of Findings:** Discuss how the deterministic adaptive engine, bilingual delivery, and dual-factor HFS provide an empirical, zero-cost cybersecurity solution for Nigerian SMEs.
+3. **Critical Limitations:** Discuss the educational boundary, the distinct constructs of baseline diagnostic vs. HFS, and the separation of developer backend administration.
+4. **Future Research:** Propose WhatsApp micro-learning delivery, native push notifications, and voice-synthesized Pidgin narration.
 
 ---
 
