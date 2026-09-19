@@ -13,9 +13,10 @@
 ## 1. Final Project Identity & Academic Context
 
 ### 1.1 Academic Project Metadata
-- **Degree:** Master of Science (M.Sc.) in Computer Science
+- **Degree Qualification:** B.Sc. Final-Year Undergraduate Computer Science Project
+- **Programme:** Bachelor of Science (B.Sc.) in Computer Science
 - **Product Title:** **SMEShield**
-- **Theoretical Foundation:** *"The Human Firewall: Rethinking Network Security Principles Beyond Technology"* (Approved Postgraduate Seminar)
+- **Theoretical Foundation:** *"The Human Firewall: Rethinking Network Security Principles Beyond Technology"* (Approved Academic Seminar)
 - **Primary Research Focus:** Translating theoretical human firewall principles into an empirical, bilingual (English & Nigerian Pidgin), adaptive web platform tailored to the socio-economic and digital threat landscape of Nigerian Small and Medium Enterprises.
 
 ### 1.2 The Seven Approved Project Objectives
@@ -350,10 +351,51 @@ Every test case identifies its specific verification method:
 | **TC-13** | Access Control (RBAC)| Obj 5 | Business Owner Cross-Tenant Isolation| DATABASE QUERY | Owner A queries staff belonging to Owner B | Zero records returned via RLS | Isolation enforced by PostgreSQL RLS | **PASS** |
 | **TC-14** | Team Management | Obj 5 | 6-Digit Join Code Organization Link | AUTHENTICATED RUNTIME TEST | Employee inputs valid join code `854735` | Linked to business `DELSU` | Employee successfully associated | **PASS** |
 | **TC-15** | Platform Security | Obj 1 | Unauthenticated Route Defense | STATIC/CODE INSPECTION | Unauthenticated request to `/dashboard` | HTTP 307 redirect to `/login` | Intercepted by middleware route guard | **PASS** |
-| **TC-16** | UI & Usability | Obj 7 | Multi-Breakpoint Responsive Layout | USER MANUAL TEST | Viewport widths: 375px, 414px, 768px, 1440px | Zero horizontal overflow; touch-first UI | Awaiting manual confirmation via capture | **PENDING CONFIRMATION** |
+| **TC-16** | UI & Usability | Obj 7 | Multi-Breakpoint Responsive Layout | AUTOMATED BROWSER CAPTURE | Viewport widths: 390×844px (mobile) & 1440×900px (desktop) | Zero horizontal overflow; touch-first UI | Verified across 37 automated screenshot captures (including mobile_dashboard_responsive.png, mobile_lesson_interactive.png, mobile_quiz_interactive.png) | **PASS** |
 | **TC-17** | UI & Usability | Obj 1 | Visual Scenario Photography Assets | AUTOMATED TEST | Verify `image_url` on disk for 15 modules | 15 authentic Nigerian images exist on disk | 15/15 image assets verified locally | **PASS** |
 | **TC-18** | Code Quality | Obj 1 | Static Analysis & ESLint Standards | AUTOMATED TEST | Run `npm run lint` (ESLint 9) | Zero syntax or accessibility errors | Clean execution with zero errors | **PASS** |
 | **TC-19** | System Compilation | Obj 1 | Full Next.js Turbopack Production Build| DEPLOYED PRODUCTION TEST | Run `npm run build` (Next.js 16.3.4) | 32/32 routes compile cleanly (exit code 0) | Compiled in 37.3s; 32 routes verified | **PASS** |
+
+### 4.2 Master Academic Screenshot Evidence Catalog (Chapter 4 Figures)
+
+All 29 report figures and 8 product-tour images were captured directly from the live, running SMEShield application using automated headless browser automation (`scripts/capture_academic_screenshots.mjs`) at standardized viewports (`1440 × 900 px` desktop, `390 × 844 px` mobile). 
+
+> [!NOTE]
+> **Methodological Distinction:** Ephemeral screenshot accounts were provisioned in a controlled test environment to record first-time onboarding states without disturbing permanent academic benchmarking data. Administrative provisioning is not reported as evidence of public signup and email confirmation flows. Furthermore, automated screenshot capture confirms visual layout fidelity and interface responsiveness; it does not constitute a formal human-subject usability study or empirical user-satisfaction survey.
+
+The interactive visual contact sheet is available for inspection at `docs/report_figures/screenshot_contact_sheet.html`.
+
+| Figure ID | Caption / Title | Route | Role / State | Viewport | Target File |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Figure 4.1** | SMEShield Responsive Landing Page featuring 4-Pillar Hero | `/` | Public Visitor | 1440×900 | `public_landing_hero.png` |
+| **Figure 4.2** | SMEShield Interactive Product Tour detailing 8-step journey | `/how-it-works` | Public Visitor | 1440×900 | `public_how_it_works_page.png` |
+| **Figure 4.3** | Secure Authentication Gateway with NDPA 2023 privacy architecture | `/login` | Public / Returning | 1440×900 | `auth_login_gateway.png` |
+| **Figure 4.4** | User Registration Gateway featuring mandatory NDPA consent | `/signup` | New User | 1440×900 | `auth_signup_terms_checkbox.png` |
+| **Figure 4.5** | NDPA 2023 Statutory Privacy Policy and Rights Statement | `/privacy` | Public Visitor | 1440×900 | `privacy_policy.png` |
+| **Figure 4.6** | Terms of Service governing platform usage and training boundaries | `/terms` | Public Visitor | 1440×900 | `terms_of_use.png` |
+| **Figure 4.7** | Role Selection Wizard adapting platform workflows for 3 roles | `/onboarding` | New Learner | 1440×900 | `onboarding_role_selection.png` |
+| **Figure 4.8** | Business Classification configuring rule-based curriculum priority | `/onboarding` (Step 2) | Business Owner | 1440×900 | `onboarding_business_owner_setup.png` |
+| **Figure 4.9** | Employee Workplace Association via Persistent 6-Digit Join Code | `/onboarding` (Step 2) | Employee | 1440×900 | `onboarding_employee_join_code.png` |
+| **Figure 4.10** | Baseline Cybersecurity Assessment questionnaire with Pidgin support | `/assessment` | Learner | 1440×900 | `onboarding_baseline_diagnostic.png` |
+| **Figure 4.11** | Business Owner Command Dashboard displaying Organization Readiness | `/dashboard` | Business Owner | 1440×900 | `dashboard_business_owner_overview.png` |
+| **Figure 4.12** | Human Firewall Score dial detailing dual-factor calculation metrics | `/dashboard` | Business Owner | 1440×900 | `human_firewall_score_detail.png` |
+| **Figure 4.13** | Priority Threat Focus card highlighting high-risk areas | `/dashboard` | Business Owner | 1440×900 | `human_firewall_priority_focus.png` |
+| **Figure 4.14** | Team Management Roster tracking staff compliance and scores | `/dashboard/team` | Business Owner | 1440×900 | `team_roster_overview.png` |
+| **Figure 4.15** | Employee Individual Performance Modal with granular score breakdown| `/dashboard/team` | Business Owner | 1440×900 | `team_employee_detail_view.png` |
+| **Figure 4.16** | Employee Invitation Modal with 6-digit persistent join code badge | `/dashboard/team` | Business Owner | 1440×900 | `team_invite_employee.png` |
+| **Figure 4.17** | User Profile Management with language preference configuration | `/dashboard/profile`| Business Owner | 1440×900 | `profile_overview.png` |
+| **Figure 4.18** | Mobile Viewport of Business Dashboard verifying touch navigation | `/dashboard` | Business Owner | 390×844 | `mobile_dashboard_responsive.png` |
+| **Figure 4.19** | Frontline Employee Learner Dashboard highlighting next module | `/dashboard` | Employee | 1440×900 | `dashboard_employee_learner_view.png` |
+| **Figure 4.20** | Training Curriculum Library displaying 15 bilingual modules | `/training` | Employee | 1440×900 | `training_curriculum_library.png` |
+| **Figure 4.21** | Module Overview detailing scenario and 80% mastery threshold | `/training/[id]` | Employee | 1440×900 | `training_module_overview.png` |
+| **Figure 4.22** | Interactive Lesson Viewer in English with attack breakdown | `/training/[id]/lesson`| Employee | 1440×900 | `training_lesson_english.png` |
+| **Figure 4.23** | Authentic Nigerian Pidgin Lesson Viewer ensuring comprehension | `/training/[id]/lesson`| Employee | 1440×900 | `training_lesson_pidgin.png` |
+| **Figure 4.24** | Mobile Lesson Interface delivering bite-sized training to phones | `/training/[id]/lesson`| Employee | 390×844 | `mobile_lesson_interactive.png` |
+| **Figure 4.25** | Knowledge Check Quiz Question with active answer selection | `/training/[id]/quiz` | Employee | 1440×900 | `training_quiz_question_active.png` |
+| **Figure 4.26** | Mobile Knowledge Check interface optimized for one-handed use | `/training/[id]/quiz` | Employee | 390×844 | `mobile_quiz_interactive.png` |
+| **Figure 4.27** | Interactive Quiz Evaluation displaying instant remedial guidance | `/training/[id]/quiz` | Employee | 1440×900 | `training_quiz_result_passed.png` |
+| **Figure 4.28** | Learner Progress Ledger tracking completed modules and scores | `/dashboard/progress`| Employee | 1440×900 | `training_progress_overview.png` |
+| **Figure 4.29** | Sole Entrepreneur Dashboard designed for autonomous POS merchants | `/dashboard` | Sole Trader | 1440×900 | `dashboard_sole_entrepreneur_view.png` |
 
 ---
 

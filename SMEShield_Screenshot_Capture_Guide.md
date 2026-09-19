@@ -1,9 +1,9 @@
-# SMEShield — Authoritative Manual Screenshot Capture Guide
+# SMEShield — Authoritative Academic Screenshot Evidence & Capture Guide
 
-**Document Purpose:** Complete, step-by-step manual capture manual for the candidate (Aruah Paul Ajirioghene) to capture authentic, production-grade visual evidence from the live SMEShield platform for the **M.Sc. Dissertation Report (Chapters 3 & 4)**, the **Oral Defence Presentation Slides**, and the **Interactive How It Works Product Tour**.
+**Document Purpose:** Complete, step-by-step visual evidence catalog and automated screenshot verification manual for the candidate (Aruah Paul Ajirioghene) documenting authentic, production-grade visual evidence from the live SMEShield platform for the **B.Sc. Final-Year Undergraduate Computer Science Project (Chapters 3 & 4)**, the **Oral Defence Presentation Slides**, and the **Interactive How It Works Product Tour**.
 
 > [!IMPORTANT]
-> **Source of Truth Directive:** Under no circumstances should Google Stitch UI mockups or outdated Phase 1/2 wireframes be included in the dissertation or presentation. Every screenshot must be captured directly from the live, fully functional SMEShield application using the verified test accounts.
+> **Source of Truth Directive:** Under no circumstances should Google Stitch UI mockups or outdated Phase 1/2 wireframes be included in the project report or presentation. Every screenshot is captured directly from the live, fully functional SMEShield application using the verified test accounts. Visual review can be conducted via the interactive contact sheet at `docs/report_figures/screenshot_contact_sheet.html`.
 
 ---
 

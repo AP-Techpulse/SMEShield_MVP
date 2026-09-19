@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 interface TourStep {
@@ -290,15 +291,15 @@ export default function HowItWorksPage() {
                     </div>
                   </div>
 
-                  {/* Neutral Illustrated Blueprint Frame (Replacing Obsolete Stitch Mockups) */}
+                  {/* Authentic High-Resolution Application Interface Frame */}
                   <div className={`lg:col-span-6 ${isEven ? 'lg:col-start-1' : ''}`}>
-                    <div className="rounded-xl overflow-hidden border border-border-subtle/80 bg-surface-container-lowest shadow-md">
+                    <div className="rounded-xl overflow-hidden border border-border-subtle/80 bg-surface-container-lowest shadow-lg transition-all duration-300 hover:shadow-xl group">
                       {/* Browser Window Chrome */}
-                      <div className="bg-surface-container-low px-4 py-2 border-b border-border-subtle flex items-center justify-between">
+                      <div className="bg-surface-container-low px-4 py-2.5 border-b border-border-subtle flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle/80"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle/80"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-border-subtle/80"></span>
                         </div>
                         <div className="text-[11px] font-mono text-muted-text truncate max-w-[200px]">
                           smeshield.ng{tourStep.route}
@@ -308,34 +309,25 @@ export default function HowItWorksPage() {
                         </span>
                       </div>
 
-                      {/* Technical Architecture & UI Blueprint Frame */}
-                      <div className="p-space-lg bg-surface-container/30 border-dashed border border-border-subtle/70 m-space-md rounded-lg flex flex-col justify-between min-h-[260px]">
-                        <div>
-                          <div className="flex items-center justify-between mb-space-sm">
-                            <div className="flex items-center gap-2">
-                              <span className="material-symbols-outlined text-secondary text-[24px]">{tourStep.blueprintIcon}</span>
-                              <span className="font-label-md font-semibold text-primary-container text-sm">Interface Schema: Step {tourStep.step}</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 text-[11px] font-mono text-warning-text bg-warning-bg px-2 py-0.5 rounded border border-warning-base/20">
-                              <span className="material-symbols-outlined text-[13px]">pending</span>
-                              <span>Screenshot Pending Manual Capture</span>
-                            </span>
-                          </div>
+                      {/* Real Application Screenshot */}
+                      <div className="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
+                        <Image 
+                          src={`/assets/smeshield/tour/${tourStep.id.toLowerCase()}.png`} 
+                          alt={t(tourStep.titleEn, tourStep.titlePcm)}
+                          width={1440}
+                          height={900}
+                          priority={index < 2}
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" 
+                        />
+                      </div>
 
-                          <div className="space-y-1.5 mt-space-md">
-                            {tourStep.blueprintFeatures.map((feat, idx) => (
-                              <div key={idx} className="flex items-center gap-2 text-xs text-on-surface-variant font-mono bg-surface p-2 rounded border border-border-subtle/50">
-                                <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                                <span>{feat}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="mt-space-md pt-space-xs border-t border-border-subtle/50 flex items-center justify-between text-[11px] text-muted-text">
-                          <span>Target Asset: <code className="font-mono text-primary font-semibold">{tourStep.id.toLowerCase()}.png</code></span>
-                          <span>Viewport: Desktop 1440×900 / Mobile 390×844</span>
-                        </div>
+                      {/* Visual Verification Badge & Route Footer */}
+                      <div className="px-4 py-2.5 bg-surface border-t border-border-subtle/60 flex items-center justify-between text-[11px] text-muted-text">
+                        <span className="flex items-center gap-1.5 text-secondary font-medium font-mono text-[11px]">
+                          <span className="material-symbols-outlined text-[14px]">verified</span>
+                          <span>Live System Capture</span>
+                        </span>
+                        <span className="font-mono text-muted-text/80">1440 × 900 px</span>
                       </div>
                     </div>
                   </div>

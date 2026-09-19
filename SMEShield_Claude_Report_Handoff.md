@@ -14,7 +14,7 @@
 | :--- | :--- |
 | **Project Title** | Design and Implementation of a Web-Based Bilingual and Adaptive Cybersecurity Awareness Training and Self-Assessment Platform for SMEs in Nigeria |
 | **Product Short Name** | **SMEShield** |
-| **Degree Awarded** | Master of Science (M.Sc.) in Computer Science |
+| **Degree Awarded** | B.Sc. Final-Year Undergraduate Computer Science Project |
 | **Candidate Name** | Aruah Paul Ajirioghene |
 | **Matriculation Number** | FOS/22/23/287477 |
 | **Department** | Department of Computer Science |

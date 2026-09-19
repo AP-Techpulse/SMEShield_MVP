@@ -1,0 +1,483 @@
+[
+  {
+    "id": "SHOT-PUB-01",
+    "filename": "public_landing_hero.png",
+    "route": "/",
+    "role": "Public Visitor",
+    "viewport": "1440x900",
+    "caption": "Figure 4.1: SMEShield Responsive Landing Page featuring 4-Pillar Human Firewall Storytelling Hero.",
+    "description": "Hero section presenting Nigerian cyber threats, the educational void, bilingual training, and measurable Human Firewall protection.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-PUB-02",
+    "filename": "public_how_it_works_page.png",
+    "route": "/how-it-works",
+    "role": "Public Visitor",
+    "viewport": "1440x900",
+    "caption": "Figure 4.2: SMEShield Interactive Product Tour detailing 8-step cybersecurity journey.",
+    "description": "Public How It Works overview outlining registration, adaptive training, bilingual micro-learning, and team score aggregation.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-AUTH-01",
+    "filename": "auth_login_gateway.png",
+    "route": "/login",
+    "role": "Public / Returning User",
+    "viewport": "1440x900",
+    "caption": "Figure 4.3: Secure Authentication Gateway with NDPA 2023 aligned privacy architecture.",
+    "description": "Login interface with credential encryption, bilingual Pidgin toggle, and password masking.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-01",
+    "filename": "tour-01.png",
+    "route": "/signup",
+    "role": "New User",
+    "viewport": "1440x900",
+    "caption": "Step 1: Account Registration & NDPA 2023 Consent.",
+    "description": "Signup gateway with mandatory terms acknowledgement, NDPA data protection consent, and secure identity creation.",
+    "tourStep": 1,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-AUTH-02",
+    "filename": "auth_signup_terms_checkbox.png",
+    "route": "/signup",
+    "role": "New User",
+    "viewport": "1440x900",
+    "caption": "Figure 4.4: User Registration Gateway featuring mandatory NDPA 2023 compliance consent.",
+    "description": "Signup interface enforcing explicit Terms of Service and Privacy Policy acknowledgement before account creation.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-LEGAL-01",
+    "filename": "privacy_policy.png",
+    "route": "/privacy",
+    "role": "Public Visitor",
+    "viewport": "1440x900",
+    "caption": "Figure 4.5: NDPA 2023 Privacy Policy articulating data sovereignty and minimal collection principles.",
+    "description": "Privacy policy aligned with Nigerian data protection regulations.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-LEGAL-02",
+    "filename": "terms_of_use.png",
+    "route": "/terms",
+    "role": "Public Visitor",
+    "viewport": "1440x900",
+    "caption": "Figure 4.6: Terms of Service specifying academic and SME cyber readiness usage parameters.",
+    "description": "Terms of service establishing acceptable usage and SME training boundaries.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-02",
+    "filename": "tour-02.png",
+    "route": "/onboarding",
+    "role": "New Learner",
+    "viewport": "1440x900",
+    "caption": "Step 2: Role Selection & Adaptive Threat Profiling.",
+    "description": "Learners select Business Owner, Employee, or Sole Entrepreneur to receive personalized training curricula.",
+    "tourStep": 2,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-ONB-01",
+    "filename": "onboarding_role_selection.png",
+    "route": "/onboarding",
+    "role": "New Learner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.7: Role Selection Wizard adapting platform workflows for Owners, Employees, and Sole Traders.",
+    "description": "Three distinct operational modes tailored to the Nigerian commercial ecosystem.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-03",
+    "filename": "tour-03.png",
+    "route": "/onboarding (Step 2/3)",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Step 3: Sector Classification & Organization Setup.",
+    "description": "Configures SME commercial sector to tailor simulations to relevant threats.",
+    "tourStep": 3,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-ONB-02",
+    "filename": "onboarding_business_owner_setup.png",
+    "route": "/onboarding (Step 2/3)",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.8: Business Classification interface configuring rule-based curriculum prioritization.",
+    "description": "Deterministic sector tagging aligning simulations with daily operational risks.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-ONB-03",
+    "filename": "onboarding_employee_join_code.png",
+    "route": "/onboarding (Step 2 - Employee)",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.9: Employee Workplace Association via Persistent 6-Digit Join Code.",
+    "description": "Zero-overhead employee onboarding linking staff to the DELSU enterprise workspace.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-04",
+    "filename": "tour-04.png",
+    "route": "/assessment",
+    "role": "Learner",
+    "viewport": "1440x900",
+    "caption": "Step 4: Adaptive Baseline Diagnostic Assessment.",
+    "description": "Diagnostic questionnaire measuring entry-level cybersecurity awareness across Nigerian threat categories.",
+    "tourStep": 4,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-ONB-04",
+    "filename": "onboarding_baseline_diagnostic.png",
+    "route": "/assessment",
+    "role": "Learner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.10: Baseline Cybersecurity Assessment questionnaire with real-time bilingual support.",
+    "description": "Diagnostic assessment establishing pre-training Human Firewall benchmarks.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-05",
+    "filename": "tour-05.png",
+    "route": "/dashboard",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Step 5: Human Firewall Dashboard & Operational Command.",
+    "description": "Executive overview displaying team readiness, enrolled staff count, average quiz mastery, and personal HFS dial.",
+    "tourStep": 5,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-DASH-01",
+    "filename": "dashboard_business_owner_overview.png",
+    "route": "/dashboard",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.11: Business Owner Command Dashboard displaying Organization Readiness and Owner Defense Track.",
+    "description": "Enterprise operations center with DELSU metrics, 6-digit join code badge, and actionable defense guidance.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-HFS-01",
+    "filename": "human_firewall_score_detail.png",
+    "route": "/dashboard",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.12: Human Firewall Score (HFS) Gauge reflecting verified workforce readiness (0-100%).",
+    "description": "Composite metric combining baseline diagnostics, module completion, and quiz mastery.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-HFS-02",
+    "filename": "human_firewall_priority_focus.png",
+    "route": "/dashboard",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.13: Priority Threat Modules and Recommended Defensive Actions.",
+    "description": "Rule-based recommendations highlighting high-risk threat categories requiring immediate training.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-BO-01",
+    "filename": "team_roster_overview.png",
+    "route": "/dashboard/team",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.14: Workforce Compliance & Team Roster interface showing enrolled staff (EMPLOYEE 1 & 2).",
+    "description": "Team administration showing join code 252429, individual completion rates, quiz averages, and CSV export action.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-BO-02",
+    "filename": "team_employee_detail_view.png",
+    "route": "/dashboard/team/[id]",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.15: Individual Employee Security Drill-Down displaying granular module audit and quiz scores.",
+    "description": "Deep audit view verifying staff mastery, weak areas, and individual risk factors.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-BO-03",
+    "filename": "team_invite_employee.png",
+    "route": "/dashboard/team/invite",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.16: Employee Invitation Provisioning and Join Code Dispatch Center.",
+    "description": "Dual enrollment mechanism supporting instant 6-digit join codes and direct email invitations.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-PROF-01",
+    "filename": "profile_overview.png",
+    "route": "/dashboard/profile",
+    "role": "Business Owner",
+    "viewport": "1440x900",
+    "caption": "Figure 4.17: User Profile and Organization Credentials Configuration.",
+    "description": "Profile management showing linked enterprise, role permissions, and language preferences.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-MOB-01",
+    "filename": "mobile_dashboard_responsive.png",
+    "route": "/dashboard",
+    "role": "Business Owner",
+    "viewport": "390x844",
+    "caption": "Figure 4.18: Mobile Responsive Dashboard optimized for Nigerian SME operators on mobile devices.",
+    "description": "Fully stacked touch-friendly interface delivering executive metrics without horizontal scroll.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-DASH-02",
+    "filename": "dashboard_employee_learner_view.png",
+    "route": "/dashboard",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.19: Employee Learner Dashboard showing personalized Human Firewall Score and assigned training.",
+    "description": "Frontline staff portal displaying workplace link to DELSU and direct module action cards.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-06",
+    "filename": "tour-06.png",
+    "route": "/training",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Step 6: Adaptive Cybersecurity Training Library.",
+    "description": "15 modular courses addressing specific Nigerian threats including Fake Alerts, POS fraud, and BEC scams.",
+    "tourStep": 6,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-TRN-01",
+    "filename": "training_curriculum_library.png",
+    "route": "/training",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.20: Adaptive Curriculum Library displaying 15 Nigerian SME threat modules with priority badges.",
+    "description": "Full modular cybersecurity curriculum dynamically tailored to business risk profile.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-TRN-02",
+    "filename": "training_module_overview.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.21: Module Overview detailing threat scenario, learning objectives, and 80% mastery requirement.",
+    "description": "Pre-lesson orientation showcasing high-resolution contextual Nigerian SME scenario.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-07",
+    "filename": "tour-07.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/lesson",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Step 7: Bilingual Micro-Learning Lessons (English & Nigerian Pidgin).",
+    "description": "Realistic micro-learning scenario with full bilingual parity to empower frontline commercial staff.",
+    "tourStep": 7,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-TRN-03",
+    "filename": "training_lesson_english.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/lesson",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.22: Interactive Lesson Viewer in English with contextual attack breakdown.",
+    "description": "Educational micro-content explaining threat anatomy and practical defensive protocols.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-TRN-04",
+    "filename": "training_lesson_pidgin.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/lesson",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.23: Authentic Nigerian Pidgin Lesson Viewer ensuring comprehension across non-technical staff.",
+    "description": "Culturally adapted threat guidance utilizing authentic vernacular terms.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-MOB-02",
+    "filename": "mobile_lesson_interactive.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/lesson",
+    "role": "Employee",
+    "viewport": "390x844",
+    "caption": "Figure 4.24: Mobile Lesson Interface delivering bite-sized training directly to employee smartphones.",
+    "description": "Responsive mobile lesson experience requiring zero desktop infrastructure.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-QUIZ-01",
+    "filename": "training_quiz_question_active.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/quiz",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.25: Knowledge Check Quiz Question with active answer selection.",
+    "description": "Formative evaluation testing learner ability to detect subtle threat indicators.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-MOB-03",
+    "filename": "mobile_quiz_interactive.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/quiz",
+    "role": "Employee",
+    "viewport": "390x844",
+    "caption": "Figure 4.26: Mobile Knowledge Check interface optimized for one-handed completion.",
+    "description": "Touch-friendly quiz assessment accessible on standard low-cost Android/iOS devices.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "TOUR-08",
+    "filename": "tour-08.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/quiz",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Step 8: 80% Mastery Assessment & Instant Remedial Feedback.",
+    "description": "Instant feedback highlighting correct decisions, providing rationale, and enforcing the 80% passing standard.",
+    "tourStep": 8,
+    "targetDirs": [
+      "public\\assets\\smeshield\\tour"
+    ]
+  },
+  {
+    "id": "SHOT-QUIZ-02",
+    "filename": "training_quiz_result_passed.png",
+    "route": "/training/28e7b4ae-a4c4-4a0d-af3a-bc9d9e9535db/quiz",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.27: Interactive Quiz Evaluation displaying instant feedback and remedial guidance.",
+    "description": "Immediate reinforcement confirming correct responses and cementing behavioral habits.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-TRN-05",
+    "filename": "training_progress_overview.png",
+    "route": "/dashboard/progress",
+    "role": "Employee",
+    "viewport": "1440x900",
+    "caption": "Figure 4.28: Learner Progress Ledger tracking completed modules, quiz mastery scores, and dates.",
+    "description": "Auditable training history verifying employee compliance and curriculum completion.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  },
+  {
+    "id": "SHOT-DASH-03",
+    "filename": "dashboard_sole_entrepreneur_view.png",
+    "route": "/dashboard",
+    "role": "Sole Entrepreneur",
+    "viewport": "1440x900",
+    "caption": "Figure 4.29: Sole Entrepreneur Dashboard designed for autonomous market traders and POS operators.",
+    "description": "Self-paced standalone dashboard focusing on personal financial protection and fraud avoidance.",
+    "tourStep": null,
+    "targetDirs": [
+      "docs\\report_figures"
+    ]
+  }
+]
