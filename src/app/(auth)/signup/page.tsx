@@ -269,9 +269,31 @@ function SignUpForm() {
                 </div>
               </div>
               
+              {/* Terms of Use & Privacy Policy Mandatory Checkbox */}
+              <div className="flex items-start gap-2.5 pt-space-xs">
+                <input
+                  id="terms_acknowledgement"
+                  name="terms_acknowledgement"
+                  required
+                  type="checkbox"
+                  className="mt-1 w-4 h-4 rounded border-border-subtle text-primary focus:ring-secondary/20 cursor-pointer shrink-0"
+                />
+                <label htmlFor="terms_acknowledgement" className="font-body-sm text-xs text-on-surface leading-relaxed cursor-pointer">
+                  {language === 'pcm' ? (
+                    <span>
+                      I agree to the <Link href="/terms" target="_blank" className="text-secondary font-medium hover:underline">Terms of Use</Link> and acknowledge say I don read the <Link href="/privacy" target="_blank" className="text-secondary font-medium hover:underline">Privacy Policy</Link>.
+                    </span>
+                  ) : (
+                    <span>
+                      I agree to the <Link href="/terms" target="_blank" className="text-secondary font-medium hover:underline">Terms of Use</Link> and acknowledge that I have read the <Link href="/privacy" target="_blank" className="text-secondary font-medium hover:underline">Privacy Policy</Link>.
+                    </span>
+                  )}
+                </label>
+              </div>
+
               {/* Primary Submission Button */}
               <button 
-                className="w-full h-touch-target-min bg-primary-container hover:bg-primary text-on-primary font-body-md-semibold text-body-md-semibold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-space-md" 
+                className="w-full h-touch-target-min bg-primary-container hover:bg-primary text-on-primary font-body-md-semibold text-body-md-semibold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-space-xs" 
                 type="submit"
               >
                 <span>{t('Create Account & Continue', 'Create Account & Make We Start')}</span>
@@ -288,30 +310,32 @@ function SignUpForm() {
             </div>
             
             {/* OAuth Action: Google Sign-in */}
-            <button 
-              onClick={handleGoogleSignIn}
-              className="w-full h-12 bg-surface hover:bg-surface-container-low text-on-surface border border-border-subtle rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 transition focus:outline-none focus:ring-2 focus:ring-secondary shadow-sm" 
-              type="button"
-            >
-              <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
-                <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" fill="#4285F4"></path>
-                <path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.26 21.36 7.33 24 12 24z" fill="#34A853"></path>
-                <path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
-                <path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
-              </svg>
-              <span>{t('Sign up with Google', 'Register with Google')}</span>
-            </button>
+            <div className="space-y-2">
+              <button 
+                onClick={handleGoogleSignIn}
+                className="w-full h-12 bg-surface hover:bg-surface-container-low text-on-surface border border-border-subtle rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 transition focus:outline-none focus:ring-2 focus:ring-secondary shadow-sm" 
+                type="button"
+              >
+                <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                  <path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" fill="#4285F4"></path>
+                  <path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.26 21.36 7.33 24 12 24z" fill="#34A853"></path>
+                  <path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
+                  <path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+                </svg>
+                <span>{t('Sign up with Google', 'Register with Google')}</span>
+              </button>
+              <p className="font-body-sm text-[11px] text-muted-text text-center">
+                {t(
+                  'By continuing with Google, you confirm agreement to our Terms of Use and Privacy Policy.',
+                  'As you dey use Google sign up, you agree to our Terms of Use and Privacy Policy.'
+                )}
+              </p>
+            </div>
           </div>
           
-          {/* Footer / Legal NDPA compliance notice */}
+          {/* Footer Navigation */}
           <div className="mt-space-lg pt-space-md bg-surface border-t border-border-subtle/50">
-            <p className="font-body-sm text-[12px] text-muted-text text-center leading-relaxed">
-              {t(
-                "By signing up, you agree to SMEShield's Terms and acknowledge compliance with the Nigeria Data Protection Act 2023 (NDPA) privacy standards.",
-                "As you dey sign up so, you agree to SMEShield Terms and know say we dey follow the complete Nigeria Data Protection Act 2023 (NDPA) standard."
-              )}
-            </p>
-            <p className="font-body-md text-body-md text-center mt-3 text-muted-text">
+            <p className="font-body-md text-body-md text-center text-muted-text">
               <span>{t('Already have an account?', 'You get account already?')} </span>
               <Link className="text-secondary font-body-md-semibold text-body-md-semibold hover:underline" href="/login">
                 {t('Log In', 'Sign In')}
