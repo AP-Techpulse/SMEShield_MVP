@@ -1,26 +1,24 @@
 # SMEShield — Authoritative Master Academic Evidence Report
 
-**Document Status:** Final Verified Baseline (Phase Final)  
+**Document Status:** Final Verified Academic Baseline & Evidence Freeze  
 **Compilation Date:** September 19, 2026  
-**Institution:** Department of Computer Science, Faculty of Science, Delta State University, Abraka, Nigeria  
-**Candidate:** Aruah Paul Ajirioghene (Matric: FOS/22/23/287477)  
-**Supervisor:** Dr. (Mrs.) Chika Lillian Onyagu  
+**Institution:** Department of Computer Science, Faculty of Science, Delta State University, Abraka, Delta State, Nigeria  
+**Degree Qualification:** B.Sc. Final-Year Undergraduate Computer Science Project  
+**Candidate:** Aruah Paul Ajirioghene (Matriculation Number: FOS/22/23/287477)  
+**Project Supervisor:** Dr. (Mrs.) Chika Lillian Onyagu  
 **Project Title:** Design and Implementation of a Web-Based Bilingual and Adaptive Cybersecurity Awareness Training and Self-Assessment Platform for SMEs in Nigeria  
-**Document Purpose:** Direct empirical evidence and architectural documentation for **Chapter 3 (System Design & Methodology)**, **Chapter 4 (Implementation, Testing & Results)**, and **Chapter 5 (Discussion, Objectives Realization & Conclusion)**.
+**Platform Short Name:** **SMEShield**  
+**Repository:** `https://github.com/AP-Techpulse/SMEShield_MVP` (Branch: `master`)  
+**Production URL:** `https://sme-shield-mvp.vercel.app` (Vercel Global Edge Network)  
 
 ---
 
-## 1. Final Project Identity & Academic Context
+## 1. Academic Project Identity & Research Framework
 
-### 1.1 Academic Project Metadata
-- **Degree Qualification:** B.Sc. Final-Year Undergraduate Computer Science Project
-- **Programme:** Bachelor of Science (B.Sc.) in Computer Science
-- **Product Title:** **SMEShield**
-- **Theoretical Foundation:** *"The Human Firewall: Rethinking Network Security Principles Beyond Technology"* (Approved Academic Seminar)
-- **Primary Research Focus:** Translating theoretical human firewall principles into an empirical, bilingual (English & Nigerian Pidgin), adaptive web platform tailored to the socio-economic and digital threat landscape of Nigerian Small and Medium Enterprises.
+### 1.1 Academic Project Context
+This document serves as the master empirical record providing verifiable engineering proof, schema specifications, algorithmic formulations, test case results, and interface catalogs for **Chapter 3 (System Design and Methodology)**, **Chapter 4 (System Implementation, Testing, and Results)**, and **Chapter 5 (Discussion, Objectives Realization, and Conclusion)**.
 
 ### 1.2 The Seven Approved Project Objectives
-The platform implementation is evaluated directly against the seven approved dissertation objectives:
 1. **Objective 1 (Web-Based SME Training Platform):** Design and develop a web-based cybersecurity awareness training platform specifically tailored to the operational realities of Nigerian Small and Medium Enterprises (SMEs).
 2. **Objective 2 (Bilingual Content System):** Develop a culturally relevant, bilingual content delivery system providing all learning modules, scenarios, and assessment quizzes in both English and Nigerian Pidgin.
 3. **Objective 3 (Rule-Based Adaptive Engine):** Implement a deterministic, rule-based adaptive learning recommendation engine that dynamically personalizes module sequencing according to SME business sector and diagnostic weakness.
@@ -49,6 +47,51 @@ The platform implementation is evaluated directly against the seven approved dis
 | **Typography System** | Newsreader (Serif) + Inter (Sans) | Google Fonts via `next/font` | `src/app/layout.tsx` |
 | **Build Compiler** | Next.js Turbopack | Clean compile across 32 routes | Production build logs |
 | **Hosting & CI/CD** | Vercel Edge Network | Automated Git Continuous Deployment | Remote Vercel deployment |
+
+### 2.2 Mermaid System Architecture Diagram
+
+```mermaid
+graph TD
+    subgraph ClientLayer ["Client Browser / Mobile Viewport"]
+        UI["Next.js 16 App Router UI"]
+        LC["LanguageContext (EN / PCM)"]
+        SW["Service / State Hooks"]
+    end
+
+    subgraph ServerLayer ["Next.js Server Runtime (Node.js 22 / Vercel Edge)"]
+        MW["Auth & RBAC Middleware (src/proxy.ts)"]
+        SC["React Server Components"]
+        AE["Adaptive Engine (src/lib/adaptive-engine.ts)"]
+        HFSE["HFS Calculation Subsystem"]
+        CSV["CSV Export API (/api/export-csv)"]
+    end
+
+    subgraph SupabaseLayer ["Supabase Cloud Managed Infrastructure"]
+        SAuth["Supabase Auth (JWT Sessions)"]
+        PG["PostgreSQL 15 Database"]
+        Storage["Supabase Storage (avatars bucket)"]
+        RLS["PostgreSQL Row-Level Security (RLS)"]
+    end
+
+    UI <--> |HTTPS / JSON| MW
+    MW --> SC
+    SC --> AE
+    SC --> HFSE
+    SC <--> |@supabase/ssr| SAuth
+    SC <--> |PostgREST Query| RLS
+    RLS --> PG
+    UI <--> |Direct Upload / Download| Storage
+
+    subgraph Roles ["Assessed User Roles"]
+        BO["Business Owner"]
+        EMP["Employee"]
+        SE["Sole Entrepreneur"]
+    end
+
+    BO -.-> |Tenant Admin & Roster| UI
+    EMP -.-> |Join Code & Training| UI
+    SE -.-> |Independent Training| UI
+```
 
 ---
 
@@ -320,17 +363,7 @@ erDiagram
 
 ---
 
-## 4. Chapter 4: Academic Test Execution Matrix & Results
-
-The SMEShield platform underwent formal verification across 19 comprehensive test cases covering compliance, content integrity, algorithmic accuracy, access security, and production compilation.
-
-Every test case identifies its specific verification method:
-- **AUTOMATED TEST:** Executed via automated Node.js test scripts (`verify_phase4.mjs`).
-- **DATABASE QUERY:** Direct PostgREST SQL query against the live Supabase database.
-- **STATIC/CODE INSPECTION:** Static analysis of Next.js source code and AST parsing.
-- **AUTHENTICATED RUNTIME TEST:** Server component execution with authenticated session state.
-- **USER MANUAL TEST (Awaiting User Manual Execution):** Detailed in the Screenshot Capture Guide; awaiting personal execution and confirmation by the candidate.
-- **DEPLOYED PRODUCTION TEST:** Verified on the active Vercel production edge deployment.
+## 4. Master Academic Test Execution Matrix & Results
 
 ### Table 4.1: Comprehensive Academic Test Matrix
 
@@ -351,61 +384,66 @@ Every test case identifies its specific verification method:
 | **TC-13** | Access Control (RBAC)| Obj 5 | Business Owner Cross-Tenant Isolation| DATABASE QUERY | Owner A queries staff belonging to Owner B | Zero records returned via RLS | Isolation enforced by PostgreSQL RLS | **PASS** |
 | **TC-14** | Team Management | Obj 5 | 6-Digit Join Code Organization Link | AUTHENTICATED RUNTIME TEST | Employee inputs valid join code `854735` | Linked to business `DELSU` | Employee successfully associated | **PASS** |
 | **TC-15** | Platform Security | Obj 1 | Unauthenticated Route Defense | STATIC/CODE INSPECTION | Unauthenticated request to `/dashboard` | HTTP 307 redirect to `/login` | Intercepted by middleware route guard | **PASS** |
-| **TC-16** | UI & Usability | Obj 7 | Multi-Breakpoint Responsive Layout | AUTOMATED BROWSER CAPTURE | Viewport widths: 390×844px (mobile) & 1440×900px (desktop) | Zero horizontal overflow; touch-first UI | Verified across 37 automated screenshot captures (including mobile_dashboard_responsive.png, mobile_lesson_interactive.png, mobile_quiz_interactive.png) | **PASS** |
+| **TC-16** | UI & Usability | Obj 7 | Multi-Breakpoint Responsive Layout | AUTOMATED BROWSER CAPTURE | Viewport widths: 390×844px (mobile) & 1440×900px (desktop) | Zero horizontal overflow; touch-first UI | Verified across 37 automated screenshot captures | **PASS** |
 | **TC-17** | UI & Usability | Obj 1 | Visual Scenario Photography Assets | AUTOMATED TEST | Verify `image_url` on disk for 15 modules | 15 authentic Nigerian images exist on disk | 15/15 image assets verified locally | **PASS** |
-| **TC-18** | Code Quality | Obj 1 | Static Analysis & ESLint Standards | AUTOMATED TEST | Run `npm run lint` (ESLint 9) | Zero syntax or accessibility errors | Clean execution with zero errors | **PASS** |
-| **TC-19** | System Compilation | Obj 1 | Full Next.js Turbopack Production Build| DEPLOYED PRODUCTION TEST | Run `npm run build` (Next.js 16.3.4) | 32/32 routes compile cleanly (exit code 0) | Compiled in 37.3s; 32 routes verified | **PASS** |
-
-### 4.2 Master Academic Screenshot Evidence Catalog (Chapter 4 Figures)
-
-All 29 report figures and 8 product-tour images were captured directly from the live, running SMEShield application using automated headless browser automation (`scripts/capture_academic_screenshots.mjs`) at standardized viewports (`1440 × 900 px` desktop, `390 × 844 px` mobile). 
-
-> [!NOTE]
-> **Methodological Distinction:** Ephemeral screenshot accounts were provisioned in a controlled test environment to record first-time onboarding states without disturbing permanent academic benchmarking data. Administrative provisioning is not reported as evidence of public signup and email confirmation flows. Furthermore, automated screenshot capture confirms visual layout fidelity and interface responsiveness; it does not constitute a formal human-subject usability study or empirical user-satisfaction survey.
-
-The interactive visual contact sheet is available for inspection at `docs/report_figures/screenshot_contact_sheet.html`.
-
-| Figure ID | Caption / Title | Route | Role / State | Viewport | Target File |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Figure 4.1** | SMEShield Responsive Landing Page featuring 4-Pillar Hero | `/` | Public Visitor | 1440×900 | `public_landing_hero.png` |
-| **Figure 4.2** | SMEShield Interactive Product Tour detailing 8-step journey | `/how-it-works` | Public Visitor | 1440×900 | `public_how_it_works_page.png` |
-| **Figure 4.3** | Secure Authentication Gateway with NDPA 2023 privacy architecture | `/login` | Public / Returning | 1440×900 | `auth_login_gateway.png` |
-| **Figure 4.4** | User Registration Gateway featuring mandatory NDPA consent | `/signup` | New User | 1440×900 | `auth_signup_terms_checkbox.png` |
-| **Figure 4.5** | NDPA 2023 Statutory Privacy Policy and Rights Statement | `/privacy` | Public Visitor | 1440×900 | `privacy_policy.png` |
-| **Figure 4.6** | Terms of Service governing platform usage and training boundaries | `/terms` | Public Visitor | 1440×900 | `terms_of_use.png` |
-| **Figure 4.7** | Role Selection Wizard adapting platform workflows for 3 roles | `/onboarding` | New Learner | 1440×900 | `onboarding_role_selection.png` |
-| **Figure 4.8** | Business Classification configuring rule-based curriculum priority | `/onboarding` (Step 2) | Business Owner | 1440×900 | `onboarding_business_owner_setup.png` |
-| **Figure 4.9** | Employee Workplace Association via Persistent 6-Digit Join Code | `/onboarding` (Step 2) | Employee | 1440×900 | `onboarding_employee_join_code.png` |
-| **Figure 4.10** | Baseline Cybersecurity Assessment questionnaire with Pidgin support | `/assessment` | Learner | 1440×900 | `onboarding_baseline_diagnostic.png` |
-| **Figure 4.11** | Business Owner Command Dashboard displaying Organization Readiness | `/dashboard` | Business Owner | 1440×900 | `dashboard_business_owner_overview.png` |
-| **Figure 4.12** | Human Firewall Score dial detailing dual-factor calculation metrics | `/dashboard` | Business Owner | 1440×900 | `human_firewall_score_detail.png` |
-| **Figure 4.13** | Priority Threat Focus card highlighting high-risk areas | `/dashboard` | Business Owner | 1440×900 | `human_firewall_priority_focus.png` |
-| **Figure 4.14** | Team Management Roster tracking staff compliance and scores | `/dashboard/team` | Business Owner | 1440×900 | `team_roster_overview.png` |
-| **Figure 4.15** | Employee Individual Performance Modal with granular score breakdown| `/dashboard/team` | Business Owner | 1440×900 | `team_employee_detail_view.png` |
-| **Figure 4.16** | Employee Invitation Modal with 6-digit persistent join code badge | `/dashboard/team` | Business Owner | 1440×900 | `team_invite_employee.png` |
-| **Figure 4.17** | User Profile Management with language preference configuration | `/dashboard/profile`| Business Owner | 1440×900 | `profile_overview.png` |
-| **Figure 4.18** | Mobile Viewport of Business Dashboard verifying touch navigation | `/dashboard` | Business Owner | 390×844 | `mobile_dashboard_responsive.png` |
-| **Figure 4.19** | Frontline Employee Learner Dashboard highlighting next module | `/dashboard` | Employee | 1440×900 | `dashboard_employee_learner_view.png` |
-| **Figure 4.20** | Training Curriculum Library displaying 15 bilingual modules | `/training` | Employee | 1440×900 | `training_curriculum_library.png` |
-| **Figure 4.21** | Module Overview detailing scenario and 80% mastery threshold | `/training/[id]` | Employee | 1440×900 | `training_module_overview.png` |
-| **Figure 4.22** | Interactive Lesson Viewer in English with attack breakdown | `/training/[id]/lesson`| Employee | 1440×900 | `training_lesson_english.png` |
-| **Figure 4.23** | Authentic Nigerian Pidgin Lesson Viewer ensuring comprehension | `/training/[id]/lesson`| Employee | 1440×900 | `training_lesson_pidgin.png` |
-| **Figure 4.24** | Mobile Lesson Interface delivering bite-sized training to phones | `/training/[id]/lesson`| Employee | 390×844 | `mobile_lesson_interactive.png` |
-| **Figure 4.25** | Knowledge Check Quiz Question with active answer selection | `/training/[id]/quiz` | Employee | 1440×900 | `training_quiz_question_active.png` |
-| **Figure 4.26** | Mobile Knowledge Check interface optimized for one-handed use | `/training/[id]/quiz` | Employee | 390×844 | `mobile_quiz_interactive.png` |
-| **Figure 4.27** | Interactive Quiz Evaluation displaying instant remedial guidance | `/training/[id]/quiz` | Employee | 1440×900 | `training_quiz_result_passed.png` |
-| **Figure 4.28** | Learner Progress Ledger tracking completed modules and scores | `/dashboard/progress`| Employee | 1440×900 | `training_progress_overview.png` |
-| **Figure 4.29** | Sole Entrepreneur Dashboard designed for autonomous POS merchants | `/dashboard` | Sole Trader | 1440×900 | `dashboard_sole_entrepreneur_view.png` |
+| **TC-18** | Code Quality | Obj 1 | Static Analysis & ESLint Standards | AUTOMATED TEST | Run `npm run lint` (ESLint 9) | Zero syntax or accessibility errors | Clean execution with zero errors/warnings | **PASS** |
+| **TC-19** | System Compilation | Obj 1 | Full Next.js Turbopack Production Build| DEPLOYED PRODUCTION TEST | Run `npm run build` (Next.js 16.3.4) | 32/32 routes compile cleanly (exit code 0) | Compiled in 14.8s; 32 routes verified | **PASS** |
 
 ---
 
-## 5. Chapter 5: Objectives Realization & Project Mapping Matrix
+## 5. Master Academic Screenshot Evidence Catalog (Chapter 4 Figures)
 
-### Table 5.1: Detailed Objectives Realization Mapping
+All 29 report figures and 8 product-tour images were captured directly from the live, running SMEShield application using automated headless browser automation at standardized viewports (`1440 × 900 px` desktop, `390 × 844 px` mobile).
+
+> [!NOTE]
+> **Methodological Note on Usability & Visual Capture:**  
+> Automated browser capture confirms interface layout fidelity, typography legibility, and viewport responsiveness; it does not constitute a formal human-subject user study. Furthermore, Claude AI is advised to include the **17 Primary Figures** in Chapter 4 body text and place the remaining **12 Supporting Figures** in Appendix B to preserve academic narrative flow.
+
+The interactive visual contact sheet is available for inspection at `docs/report_figures/screenshot_contact_sheet.html`.
+
+### Table 5.1: Master Academic Screenshot Catalog & Placement Guide
+
+| Figure ID | Caption / Title | Route | Role / State | Viewport | Proposed Chapter 4 Section | Recommended Placement | Target Filename |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Figure 4.1** | SMEShield Responsive Landing Page featuring 4-Pillar Hero | `/` | Public Visitor | 1440×900 | **4.2.1** | **Chapter 4 Primary** | `public_landing_hero.png` |
+| **Figure 4.2** | SMEShield Interactive Product Tour detailing 8-step journey | `/how-it-works` | Public Visitor | 1440×900 | **4.2.1** | **Appendix / Slides** | `public_how_it_works_page.png` |
+| **Figure 4.3** | Secure Authentication Gateway with NDPA 2023 privacy architecture | `/login` | Public / Returning | 1440×900 | **4.2.2** | **Chapter 4 Primary** | `auth_login_gateway.png` |
+| **Figure 4.4** | User Registration Gateway featuring mandatory NDPA consent | `/signup` | New User | 1440×900 | **4.2.2** | **Chapter 4 Primary** | `auth_signup_terms_checkbox.png` |
+| **Figure 4.5** | NDPA 2023 Statutory Privacy Policy and Rights Statement | `/privacy` | Public Visitor | 1440×900 | **4.2.2** | **Appendix / Slides** | `privacy_policy.png` |
+| **Figure 4.6** | Terms of Service governing platform usage and training boundaries | `/terms` | Public Visitor | 1440×900 | **4.2.2** | **Appendix / Slides** | `terms_of_use.png` |
+| **Figure 4.7** | Role Selection Wizard adapting platform workflows for 3 roles | `/onboarding` | New Learner | 1440×900 | **4.2.3** | **Chapter 4 Primary** | `onboarding_role_selection.png` |
+| **Figure 4.8** | Business Classification configuring rule-based curriculum priority | `/onboarding` (Step 2) | Business Owner | 1440×900 | **4.2.3** | **Chapter 4 Primary** | `onboarding_business_owner_setup.png` |
+| **Figure 4.9** | Employee Workplace Association via Persistent 6-Digit Join Code | `/onboarding` (Step 2) | Employee | 1440×900 | **4.2.3** | **Chapter 4 Primary** | `onboarding_employee_join_code.png` |
+| **Figure 4.10** | Baseline Cybersecurity Assessment questionnaire with Pidgin support | `/assessment` | Learner | 1440×900 | **4.2.4** | **Chapter 4 Primary** | `onboarding_baseline_diagnostic.png` |
+| **Figure 4.11** | Business Owner Command Dashboard displaying Organization Readiness | `/dashboard` | Business Owner | 1440×900 | **4.2.5** | **Chapter 4 Primary** | `dashboard_business_owner_overview.png` |
+| **Figure 4.12** | Human Firewall Score dial detailing dual-factor calculation metrics | `/dashboard` | Business Owner | 1440×900 | **4.2.5** | **Chapter 4 Primary** | `human_firewall_score_detail.png` |
+| **Figure 4.13** | Priority Threat Focus card highlighting high-risk areas | `/dashboard` | Business Owner | 1440×900 | **4.2.5** | **Appendix / Slides** | `human_firewall_priority_focus.png` |
+| **Figure 4.14** | Team Management Roster tracking staff compliance and scores | `/dashboard/team` | Business Owner | 1440×900 | **4.2.5** | **Chapter 4 Primary** | `team_roster_overview.png` |
+| **Figure 4.15** | Employee Individual Performance Modal with granular score breakdown| `/dashboard/team` | Business Owner | 1440×900 | **4.2.5** | **Appendix / Slides** | `team_employee_detail_view.png` |
+| **Figure 4.16** | Employee Invitation Modal with 6-digit persistent join code badge | `/dashboard/team` | Business Owner | 1440×900 | **4.2.5** | **Appendix / Slides** | `team_invite_employee.png` |
+| **Figure 4.17** | User Profile Management with language preference configuration | `/dashboard/profile`| Business Owner | 1440×900 | **4.2.5** | **Appendix / Slides** | `profile_overview.png` |
+| **Figure 4.18** | Mobile Viewport of Business Dashboard verifying touch navigation | `/dashboard` | Business Owner | 390×844 | **4.2.8** | **Chapter 4 Primary** | `mobile_dashboard_responsive.png` |
+| **Figure 4.19** | Frontline Employee Learner Dashboard highlighting next module | `/dashboard` | Employee | 1440×900 | **4.2.6** | **Chapter 4 Primary** | `dashboard_employee_learner_view.png` |
+| **Figure 4.20** | Training Curriculum Library displaying 15 bilingual modules | `/training` | Employee | 1440×900 | **4.2.6** | **Chapter 4 Primary** | `training_curriculum_library.png` |
+| **Figure 4.21** | Module Overview detailing scenario and 80% mastery threshold | `/training/[id]` | Employee | 1440×900 | **4.2.6** | **Appendix / Slides** | `training_module_overview.png` |
+| **Figure 4.22** | Interactive Lesson Viewer in English with attack breakdown | `/training/[id]/lesson`| Employee | 1440×900 | **4.2.7** | **Chapter 4 Primary** | `training_lesson_english.png` |
+| **Figure 4.23** | Authentic Nigerian Pidgin Lesson Viewer ensuring comprehension | `/training/[id]/lesson`| Employee | 1440×900 | **4.2.7** | **Chapter 4 Primary** | `training_lesson_pidgin.png` |
+| **Figure 4.24** | Mobile Lesson Interface delivering bite-sized training to phones | `/training/[id]/lesson`| Employee | 390×844 | **4.2.8** | **Appendix / Slides** | `mobile_lesson_interactive.png` |
+| **Figure 4.25** | Knowledge Check Quiz Question with active answer selection | `/training/[id]/quiz` | Employee | 1440×900 | **4.2.7** | **Chapter 4 Primary** | `training_quiz_question_active.png` |
+| **Figure 4.26** | Mobile Knowledge Check interface optimized for one-handed use | `/training/[id]/quiz` | Employee | 390×844 | **4.2.8** | **Appendix / Slides** | `mobile_quiz_interactive.png` |
+| **Figure 4.27** | Interactive Quiz Evaluation displaying instant remedial guidance | `/training/[id]/quiz` | Employee | 1440×900 | **4.2.7** | **Chapter 4 Primary** | `training_quiz_result_passed.png` |
+| **Figure 4.28** | Learner Progress Ledger tracking completed modules and scores | `/dashboard/progress`| Employee | 1440×900 | **4.2.6** | **Appendix / Slides** | `training_progress_overview.png` |
+| **Figure 4.29** | Sole Entrepreneur Dashboard designed for autonomous POS merchants | `/dashboard` | Sole Trader | 1440×900 | **4.2.9** | **Chapter 4 Primary** | `dashboard_sole_entrepreneur_view.png` |
+
+---
+
+## 6. Objectives Realization & Project Mapping Matrix (Chapter 5 Evidence)
+
+### Table 6.1: Detailed Objectives Realization Mapping
 
 | Approved Objective | Implemented Architectural Subsystem | Database Tables | Empirical Evidence |
 | :--- | :--- | :--- | :--- |
-| **Objective 1: Web-Based SME Training Platform** | Next.js 16 App Router responsive web platform, Supabase cloud infrastructure, server-side route authentication, and 15 structured curriculum modules. | `public.modules`, `public.businesses` | **TC-01, TC-15, TC-18, TC-19**; Full clean production build across 32 routes. |
+| **Objective 1: Web-Based SME Training Platform** | Next.js 16 App Router responsive web platform, Supabase cloud infrastructure, server-side route authentication, and 15 structured curriculum modules. | `public.modules`, `public.businesses` | **TC-01, TC-15, TC-18, TC-19**; Full clean Turbopack build across 32 routes. |
 | **Objective 2: Bilingual Content System** | Real-time bilingual state management (`LanguageContext`), 15 enriched bilingual modules ($\ge 700$ chars each), and 75 bilingual quiz questions with full option and explanation parity. | `modules` (`content_en`, `content_pcm`), `quiz_questions` (`question_en`, `question_pcm`, `options_en`, `options_pcm`, `explanation_en`, `explanation_pcm`) | **TC-03, TC-04, TC-05**; Automated parity audit (`scripts/verify_phase4.mjs`) confirming 100% bilingual parity. |
 | **Objective 3: Rule-Based Adaptive Engine** | Server-side recommendation function (`getRecommendedModules` in `src/lib/adaptive-engine.ts`) executing formula: $\text{Base}(10) + \text{WeakArea}(+20) + \text{SectorMatch}(+10)$, with completed-module filtering and order tie-breaking. | `modules.business_type_tags`, `baseline_results.weak_areas`, `user_progress.status` | **TC-06**; Algorithmic unit execution verifying weak area priority elevation and completed module exclusion. |
 | **Objective 4: Scenario-Based Self-Assessment** | 5-question onboarding diagnostic (`/onboarding` & `/assessment`), 15 end-of-module quizzes (75 total questions) enforcing strict $\ge 80\%$ (4/5) passing threshold before status progression. | `baseline_questions`, `baseline_results`, `quiz_questions`, `assessment_results` | **TC-02, TC-10**; Assessment threshold validation script confirming sub-80% failures and pass persistence. |
@@ -415,35 +453,38 @@ The interactive visual contact sheet is available for inspection at `docs/report
 
 ---
 
-## 6. Runtime Verification Results & Performance Measurements
+## 7. Runtime Verification Results & Performance Measurements
 
-### 6.1 Automated Technical Verification Output (`scripts/verify_phase4.mjs`)
+### 7.1 Automated Technical Verification Output (`scripts/verify_phase4.mjs`)
 - **Execution Date:** September 19, 2026
-- **Total Checks Run:** 18
+- **Total Automated Checks Run:** 18
 - **Passed:** 18
 - **Failed:** 0
-- **Key Findings:**
-  - 15 modules verified in database.
-  - Exactly 75 quiz questions confirmed (5 questions per module).
-  - 100% bilingual parity confirmed across questions, 4 options, and explanations.
+- **Key Empirical Verifications:**
+  - 15 modules verified in database with 100% EN/PCM title and overview parity.
+  - Exactly 75 quiz questions confirmed (exactly 5 questions per module).
+  - 100% bilingual parity confirmed across question stems, 4 options each, and rationales.
   - All correct option indices confirmed valid integers between 0 and 3.
-  - 15 authentic Nigerian SME photography assets resolved on disk.
-  - HFS mathematical boundaries verified ($0/0 = 0$, $100/100 = 100$, $100/80 = 87$).
-  - Zero occurrences of deprecated "Expert" awareness label in production code.
+  - 15 authentic Nigerian SME photography assets resolved locally on disk.
+  - HFS mathematical boundaries verified ($0/0 = 0$, $100/100 = 100$, $100/80 = 87$, $40/75 = 63$).
+  - Zero occurrences of deprecated "Expert" awareness label in production codebase.
 
-### 6.2 Production Compilation Benchmark (`npm run build`)
+### 7.2 Production Compilation Benchmark (`npm run build`)
 - **Framework:** Next.js 16.3.4 with Turbopack bundler.
-- **TypeScript Typecheck:** Completed in 33.9s with zero type errors.
-- **Static Page Generation:** 32 routes compiled in 3.2s.
+- **TypeScript Compilation:** Completed cleanly with 0 type errors across all files.
+- **Static Page Generation:** 32 routes compiled in 14.8s.
 - **Route Distribution:**
   - 13 Static prerendered public routes (`/`, `/about`, `/contact`, `/cookies`, `/features`, `/forgot-password`, `/glossary`, `/how-it-works`, `/login`, `/ndpa`, `/privacy`, `/reset-password`, `/signup`, `/terms`).
   - 19 Dynamic server-rendered authenticated routes (`/dashboard`, `/dashboard/team`, `/dashboard/progress`, `/training`, `/training/[id]`, `/training/[id]/lesson`, `/training/[id]/quiz`, etc.).
-- **Build Exit Code:** `0` (Clean compilation).
+- **Build Exit Code:** `0` (Clean production compilation).
+- **Lint Benchmark (`npm run lint`):** Executed with ESLint 9; 0 errors, 0 warnings.
 
 ---
 
-## 7. Limitations and Future Operational Scope
+## 8. Critical Academic Caveats & Research Boundaries
 
-1. **Educational vs. Real-World Attack Simulation:** SMEShield evaluates cognitive comprehension through scenario-based multiple-choice quizzes and self-paced lessons. While effective for knowledge acquisition and behavioral intention, it does not include live simulated phishing emails or automated USB drop tests, which represent complementary operational tools.
-2. **Measurement Construct Differentiation:** The baseline diagnostic score reflects entry-level vulnerability recognition, whereas HFS combines curriculum completion volume (35%) with quiz mastery (65%). Their numerical difference serves as an educational progression metric rather than a certified clinical measure of real-world breach avoidance.
-3. **Administrative Application Scope:** The separate administrative portal (designed for platform owners to author new curriculum and manage enterprise billing) was intentionally partitioned as supporting future infrastructure, preserving candidate research focus on learner efficacy.
+1. **Educational Efficacy vs. Operational Security State:** The Human Firewall Score measures curriculum coverage (35%) and quiz performance (65%). It represents a structured educational training metric rather than a real-time intrusion monitoring feed or network security telemetry score.
+2. **Construct Differentiation:** The baseline assessment (5 diagnostic items) and HFS (composite completion and mastery across 75 items) measure distinct constructs. Their numerical difference ($\Delta_{\text{Awareness}}$) is an internal training progression metric, not clinical causal proof of breach reduction.
+3. **No Longitudinal Breach Reduction Claims:** The project does not claim that Nigerian SME cybercrime losses were reduced in the field, as such claims require longitudinal external threat telemetry beyond the scope of this undergraduate implementation.
+4. **No Fabricated User Studies:** Verification was conducted through 19 rigorous technical test cases (automated scripts, database queries, static inspections, runtime sessions). No formal human-subject survey or usability field trial was conducted.
+5. **Regulatory Alignment:** The system incorporates statutory privacy principles from the Nigeria Data Protection Act (NDPA) 2023. It does not claim formal accreditation or institutional certification from the NDPC.
