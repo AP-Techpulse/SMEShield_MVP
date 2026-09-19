@@ -107,18 +107,30 @@ export default async function CertificatePage() {
 
               {/* Logo Watermark */}
               <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-                <svg className="w-3/4 h-3/4" fill="none" viewBox="0 0 44 52" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 2C34 2 42 7.5 42 22C42 37 28 47 22 50C16 47 2 37 2 22C2 7.5 10 2 22 2Z" fill="#031632" />
+                <svg className="w-3/4 h-3/4" fill="none" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 2L6 8.5V23C6 33.5 13 41.5 22 45C31 41.5 38 33.5 38 23V8.5L22 2Z" fill="#031632" />
                 </svg>
               </div>
 
               {/* Content */}
               <div className="z-10 relative">
-                <div className="w-16 h-20 mx-auto mb-8">
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 44 52" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 2C34 2 42 7.5 42 22C42 37 28 47 22 50C16 47 2 37 2 22C2 7.5 10 2 22 2Z" fill="#1A2B48" />
-                    <path d="M22 8L34 22H26V35H18V22H10L22 8Z" fill="#4A90E2" />
-                    <circle cx="22" cy="22" fill="#F5A623" r="3.5" />
+                <div className="w-16 h-18 mx-auto mb-8">
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 44 48" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="certFacetLeft" x1="4" y1="4" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#1A2B48" />
+                        <stop offset="100%" stopColor="#0B132B" />
+                      </linearGradient>
+                      <linearGradient id="certFacetRight" x1="22" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stopColor="#0060AC" />
+                        <stop offset="100%" stopColor="#1E40AF" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M22 2L6 8.5V23C6 33.5 13 41.5 22 45V2Z" fill="url(#certFacetLeft)" />
+                    <path d="M22 2L38 8.5V23C38 33.5 31 41.5 22 45V2Z" fill="url(#certFacetRight)" />
+                    <path d="M22 2V45" stroke="#FFFFFF" strokeOpacity="0.3" strokeWidth="1.2" />
+                    <path d="M17 23.5L20.5 27L27 20" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="22" cy="13.5" r="2.2" fill="#F59E0B" />
                   </svg>
                 </div>
                 

@@ -6,6 +6,7 @@ import { LanguageToggle } from "@/components/ui/language-toggle"
 import { Logo } from "@/components/ui/Logo"
 import { Menu, X } from "lucide-react"
 import { createClient } from "@/utils/supabase/client"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 interface PublicLayoutProps {
   children: React.ReactNode
@@ -14,6 +15,7 @@ interface PublicLayoutProps {
 export function PublicLayout({ children }: PublicLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean | null>(null)
+  const { t } = useLanguage()
 
   React.useEffect(() => {
     const supabase = createClient()
@@ -33,8 +35,12 @@ export function PublicLayout({ children }: PublicLayoutProps) {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/#features" className="text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Features</Link>
-            <Link href="/how-it-works" className="text-label-md text-on-surface-variant hover:text-on-surface transition-colors">How It Works</Link>
+            <Link href="/#features" className="text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+              {t('Features', 'Wetin E Fit Do')}
+            </Link>
+            <Link href="/how-it-works" className="text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+              {t('How It Works', 'How E Dey Work')}
+            </Link>
           </nav>
 
           {/* Right Controls */}
@@ -43,15 +49,15 @@ export function PublicLayout({ children }: PublicLayoutProps) {
             <div className="h-6 w-px bg-border-subtle"></div>
             {isAuthenticated ? (
               <Link href="/dashboard" className="px-5 h-[44px] inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-medium text-sm hover:bg-[#132036] transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4A90E2]/30">
-                Go to Dashboard
+                {t('Go to Dashboard', 'Go to Dashboard')}
               </Link>
             ) : (
               <>
                 <Link href="/login" className="text-label-md text-on-surface-variant hover:text-on-surface transition-colors font-semibold">
-                  Log In
+                  {t('Log In', 'Login')}
                 </Link>
                 <Link href="/signup" className="px-4 h-[44px] inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-medium text-sm hover:bg-[#132036] transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4A90E2]/30">
-                  Start Free Training
+                  {t('Start Free Training', 'Start Free Training')}
                 </Link>
               </>
             )}
@@ -74,21 +80,25 @@ export function PublicLayout({ children }: PublicLayoutProps) {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 flex md:hidden top-20 bg-surface flex-col p-4 border-t border-border-subtle">
           <nav className="flex flex-col gap-4">
-            <Link href="/#features" onClick={() => setMobileMenuOpen(false)} className="text-headline-sm text-on-surface py-2 border-b border-border-subtle">Features</Link>
-            <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-headline-sm text-on-surface py-2 border-b border-border-subtle">How It Works</Link>
+            <Link href="/#features" onClick={() => setMobileMenuOpen(false)} className="text-headline-sm text-on-surface py-2 border-b border-border-subtle">
+              {t('Features', 'Wetin E Fit Do')}
+            </Link>
+            <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="text-headline-sm text-on-surface py-2 border-b border-border-subtle">
+              {t('How It Works', 'How E Dey Work')}
+            </Link>
           </nav>
           <div className="mt-8 flex flex-col gap-4">
             {isAuthenticated ? (
               <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="w-full px-4 h-[44px] inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-medium text-sm hover:bg-[#132036] transition-colors shadow-sm">
-                Go to Dashboard
+                {t('Go to Dashboard', 'Go to Dashboard')}
               </Link>
             ) : (
               <>
                 <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="w-full px-4 h-[44px] inline-flex items-center justify-center rounded-lg border border-border-subtle bg-surface text-on-surface font-medium text-sm hover:bg-surface-container transition-colors shadow-sm">
-                  Log In
+                  {t('Log In', 'Login')}
                 </Link>
                 <Link href="/signup" onClick={() => setMobileMenuOpen(false)} className="w-full px-4 h-[44px] inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-medium text-sm hover:bg-[#132036] transition-colors shadow-sm">
-                  Start Free Training
+                  {t('Start Free Training', 'Start Free Training')}
                 </Link>
               </>
             )}

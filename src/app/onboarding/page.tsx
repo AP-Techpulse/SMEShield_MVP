@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { Suspense, useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/ui/language-toggle'
+import { Logo } from '@/components/ui/Logo'
 import { completeOnboarding } from './actions'
 import { createClient } from '@/utils/supabase/client'
 
@@ -102,15 +103,8 @@ function OnboardingWizard() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(26,43,72,0.04)]">
         <div className="h-16 max-w-[75rem] mx-auto px-4 lg:px-8 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-11 flex items-center justify-center shrink-0">
-              <svg className="w-full h-full" fill="none" viewBox="0 0 44 52" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 2C34 2 42 7.5 42 22C42 37 28 47 22 50C16 47 2 37 2 22C2 7.5 10 2 22 2Z" fill="#031632" />
-                <path d="M22 8L34 22H26V35H18V22H10L22 8Z" fill="#0060ac" />
-                <circle cx="22" cy="22" fill="#ffb955" r="3.5" />
-              </svg>
-            </div>
-            <span className="font-serif text-lg font-bold text-primary tracking-tight">SMEShield</span>
+          <Link href="/" className="flex items-center">
+            <Logo size="md" variant="horizontal" />
           </Link>
           <div className="flex items-center gap-4">
             <LanguageToggle />

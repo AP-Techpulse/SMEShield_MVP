@@ -65,32 +65,32 @@ colors:
   info-bg: '#F0F9FF'
 typography:
   display-hero:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 44px
     fontWeight: '700'
     lineHeight: 56px
   display-hero-mobile:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 30px
     fontWeight: '700'
     lineHeight: 38px
   headline-xl:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 32px
     fontWeight: '700'
     lineHeight: 42px
   headline-xl-mobile:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 24px
     fontWeight: '700'
     lineHeight: 32px
   headline-lg:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 24px
     fontWeight: '700'
     lineHeight: 34px
   headline-md:
-    fontFamily: Merriweather
+    fontFamily: Newsreader
     fontSize: 20px
     fontWeight: '700'
     lineHeight: 28px
@@ -183,12 +183,12 @@ Every semantic state follows a three-tier system of a baseline indicator, high-c
 
 ## Typography
 
-The typographical pairing anchors the system's character: **Merriweather** provides warmth, authority, and editorial gravitas for narrative headlines, while **Inter** delivers crisp utilitarian precision across UI controls, operational data, and long-form training modules.
+The typographical pairing anchors the system's character: **Newsreader** provides warmth, authority, and editorial gravitas for narrative headlines, while **Inter** delivers crisp utilitarian precision across UI controls, operational data, and long-form training modules.
 
 ### Rules of Application
 - **Minimum Body Size:** Standard interactive body copy must never drop below 16px (`body-md`) on mobile devices. This ensures effortless readability under bright sunlight and across lower-resolution smartphone displays.
 - **Bilingual Typographic Parity:** Both English and Nigerian Pidgin strings share identical typographic scale, tracking, and leading tokens. Nigerian Pidgin copy is never italicized, bracketed, or visually demoted; it is rendered with the exact same visual authority as standard English.
-- **Display Headings:** Apply `Merriweather` with a minimum font weight of 700 to counteract anti-aliasing softening on non-retina displays.
+- **Display Headings:** Apply `Newsreader` with a minimum font weight of 700 to counteract anti-aliasing softening on non-retina displays.
 - **Microcopy & Captions:** `body-sm` (14px) and `label-sm` (12px) are reserved strictly for supplementary metadata, input hint helpers, badge pill labels, and timestamp strings.
 
 ## Layout & Spacing
@@ -245,7 +245,7 @@ The design system employs a rounded, friendly, and structured corner language (`
 - White background (`#FFFFFF`), `1px solid #E4E7EC` border, `rounded-xl` (12px) corners, and Level 1 elevation.
 - **Content Hierarchy:**
   1. Top metadata row: Module index number + Category/Risk status pill.
-  2. Heading: `Merriweather`, 18px / 26px bold, `#1A2B48`.
+  2. Heading: `Newsreader`, 18px / 26px bold, `#1A2B48`.
   3. Description / Practical context: `Inter`, 14px / 20px, `#667085`.
   4. Footer: Progress bar and estimated completion time (e.g., "5 mins").
 - **State Variations:** Completed modules swap the right indicator for the protected semantic green badge (`#12B76A` shield/checkmark).

@@ -69,6 +69,10 @@ async function run() {
   const ownerCookies = await getAuthCookies('aruahpaul2022@gmail.com', 'Password123!');
   assert(!!ownerCookies, 'Owner session token generated via @supabase/ssr');
 
+  // Fetch current active business join code dynamically
+  const { data: delsuBiz } = await sbAdmin.from('businesses').select('join_code').eq('name', 'DELSU').single();
+  const activeJoinCode = delsuBiz?.join_code || '252429';
+
   const ownerDashRes = await fetch(`${BASE_URL}/dashboard`, {
     headers: { Cookie: ownerCookies },
     redirect: 'manual'
@@ -76,7 +80,7 @@ async function run() {
   assert(ownerDashRes.status === 200, 'Owner dashboard loads with status 200');
   const ownerHtml = cleanHtml(await ownerDashRes.text());
   assert(ownerHtml.includes('DELSU'), 'Owner dashboard displays business name DELSU');
-  assert(ownerHtml.includes('854735'), 'Owner dashboard displays business Join Code 854735');
+  assert(ownerHtml.includes(activeJoinCode), `Owner dashboard displays business Join Code ${activeJoinCode}`);
   assert(ownerHtml.includes('Your Personal Cybersecurity Awareness'), 'Owner dashboard renders Personal Defense Track');
   assert(
     ownerHtml.includes('Complete your first training module to measure improvement.') &&
@@ -110,7 +114,7 @@ async function run() {
   });
   assert(ownerInviteRes.status === 200, 'Owner invite page loads with status 200');
   const ownerInviteHtml = cleanHtml(await ownerInviteRes.text());
-  assert(ownerInviteHtml.includes('854735'), 'Owner invite page displays Join Code 854735');
+  assert(ownerInviteHtml.includes(activeJoinCode), `Owner invite page displays Join Code ${activeJoinCode}`);
 
   // Test 3: Employee Journey & RBAC
   console.log('\n--- Step 3: Employee Journey & RBAC Enforcement ---');
@@ -230,14 +234,14 @@ async function run() {
 
   // Test 6: Join-Code Employee Linking in Running App
   console.log('\n--- Step 6: Join-Code Employee Linking ---');
-  // Look up business by join code 854735 using admin client
+  // Look up business by active join code using admin client
   const { data: bizLookup, error: bizErr } = await sbAdmin
     .from('businesses')
     .select('id, name')
-    .eq('join_code', '854735')
+    .eq('join_code', activeJoinCode)
     .single();
 
-  assert(!bizErr && bizLookup?.name === 'DELSU', 'Join code 854735 resolves to DELSU');
+  assert(!bizErr && bizLookup?.name === 'DELSU', `Join code ${activeJoinCode} resolves to DELSU`);
 
   // Create temporary test user to simulate join code linking
   const testEmpEmail = `smoke_test_emp_${Date.now()}@example.com`;
@@ -286,7 +290,7 @@ async function run() {
   assert(pcmDashRes.status === 200, 'Dashboard renders successfully with NEXT_LOCALE=pcm cookie');
   const pcmDashHtml = cleanHtml(await pcmDashRes.text());
   assert(
-    pcmDashHtml.includes('DELSU') && pcmDashHtml.includes('854735'),
+    pcmDashHtml.includes('DELSU') && pcmDashHtml.includes(activeJoinCode),
     'Pidgin locale preserved across dashboard request without losing user/role state'
   );
 

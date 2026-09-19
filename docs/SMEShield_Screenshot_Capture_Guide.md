@@ -17,18 +17,33 @@
 - **Image Format:** PNG (lossless, 24-bit RGB) for maximum typographic sharpness.
 
 ### 1.2 Test Account Credentials & Roles
-Use only the three verified academic test accounts configured in the live Supabase environment:
+Use the verified academic test accounts configured in the live Supabase environment:
 
-| User Role | Account Full Name | Registered Email | Assigned Business | Join Code | Role Context |
+| User Role | Account Full Name | Registered Email | Assigned Business | Active Join Code | Role Context |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Business Owner** | Paul Aruah | `aruahpaul2022@gmail.com` | DELSU | `854735` | Enterprise administration, team readiness, roster oversight. |
-| **Employee** | EMPLOYEE 1 | `paularuah2024@gmail.com` | DELSU | `854735` | Linked workplace learner, baseline diagnostic, module completion. |
+| **Business Owner** | Paul Aruah | `aruahpaul2022@gmail.com` | DELSU | `252429` | Enterprise administration, team readiness, roster oversight. |
+| **Employee (Primary)** | EMPLOYEE 1 | `paularuah2024@gmail.com` | DELSU | `252429` | Linked workplace learner, baseline diagnostic, module completion. |
+| **Employee (Secondary)** | EMPLOYEE 2 | `aptechpulse2025@gmail.com` | DELSU | `252429` | Linked workplace learner, newly onboarded team member. |
 | **Sole Entrepreneur** | Benny Jane | `paularuah087@gmail.com` | *(None / Autonomous)* | N/A | Autonomous single-operator commercial merchant. |
 
 ### 1.3 Privacy & Personal Data Redaction Rules
 - **Passwords & Tokens:** Never enter or display actual production passwords or authorization tokens in captured screenshots. (The password toggle eye icon should remain in masked mode `••••••••` where applicable).
 - **Email Addresses:** The academic test account emails (`aruahpaul2022@gmail.com`, etc.) are approved demo handles. If any other personal emails appear, obscure them with a neutral blur or solid box before report insertion.
 - **Phone Numbers / Banking Details:** SMEShield does not collect banking details; ensure no personal Nigerian bank account numbers or phone numbers appear in scenario form inputs during capture.
+
+### 1.4 Non-Destructive First-Time Onboarding & Diagnostic Capture Protocol
+> [!IMPORTANT]
+> **Zero Database Reset Guarantee:** Do NOT reset the live Supabase database or delete your three primary academic test accounts (`aruahpaul2022@gmail.com`, `paularuah2024@gmail.com`, `paularuah087@gmail.com`). 
+> 
+> To safely capture screens that can only be viewed once during first-time onboarding (Role Selection, Business Workspace Setup, and Baseline Diagnostic):
+> 1. Launch a **clean Incognito/Private browser window**.
+> 2. Navigate to `http://localhost:3000/signup`.
+> 3. Register a temporary disposable test account with any valid format (e.g. `temp.capture.owner@gmail.com` or `temp.demo.learner@gmail.com`) and an 8+ character password.
+> 4. Upon registration, you are immediately routed to `/onboarding`.
+> 5. Capture `[SHOT-ONB-01]` (Role Archetype Selection).
+> 6. Select "Business Owner" to view the business workspace setup. Capture `[SHOT-ONB-02]`.
+> 7. Proceed to the baseline diagnostic `/assessment` (or onboarding Step 4). Capture `[SHOT-ONB-04]`.
+> 8. Close the Incognito window. The primary accounts and existing benchmark data in Supabase remain 100% intact and unaffected.
 
 ---
 
@@ -69,7 +84,7 @@ Use only the three verified academic test accounts configured in the live Supaba
 - **Element to Capture:** Split-screen layout featuring authentic Nigerian SME contextual photography on the left and clean login form with email/password, show/hide password toggle, and Google OAuth on the right.
 - **Intended Usage:** Report (Chapter 4, Section 4.2.3); Defence Presentation.
 - **Suggested Academic Caption:** *Figure 4.3: Secure Authentication Gateway with split editorial layout and Google OAuth integration.*
-- **Redaction Required:** No (ensure password input is masked).
+- **Redaction Required:** No.
 
 #### [SHOT-PUB-04] Registration Portal with Mandatory Terms Checkbox
 - **Proposed Filename:** `auth_signup_terms_checkbox.png`
@@ -112,7 +127,7 @@ Use only the three verified academic test accounts configured in the live Supaba
 - **Proposed Filename:** `onboarding_employee_join_code.png`
 - **Application Route:** `/onboarding` (Step 2 - Employee)
 - **Required Role:** Employee
-- **Account State:** `paularuah2024@gmail.com` (showing input of code `854735`)
+- **Account State:** Enrolled employee or fresh test account (showing input of code `252429`)
 - **Exact Viewport:** Desktop (`1440 × 900 px`)
 - **Element to Capture:** 6-digit join code input field with real-time enterprise validation banner displaying *"Verified Business: DELSU"*.
 - **Intended Usage:** Report (Chapter 4, Section 4.3.3); Defence Presentation.
@@ -141,7 +156,7 @@ Use only the three verified academic test accounts configured in the live Supaba
 - **Account State:** Logged in as `aruahpaul2022@gmail.com`
 - **Exact Viewport:** Desktop (`1440 × 900 px`)
 - **Element to Capture:** Organization-wide dashboard displaying:
-  - Header with enterprise name (*DELSU*) and persistent join code badge (`854735`).
+  - Header with enterprise name (*DELSU*) and persistent join code badge (`252429`).
   - Top Metric Cards: *Team Readiness Dial*, *Enrolled Staff Count*, *Average Quiz Mastery*, and *Pending Invites*.
   - **Owner Defense Track Card:** Showing the Owner's personal Human Firewall Score dial, completion percentage, and personal training CTA.
 - **Intended Usage:** Report (Chapter 4, Section 4.4.1); Defence Presentation (Slide: Enterprise Monitoring); How It Works Step 5 (`TOUR-05`).
@@ -257,9 +272,9 @@ Use only the three verified academic test accounts configured in the live Supaba
 - **Account State:** Logged in as `aruahpaul2022@gmail.com`
 - **Exact Viewport:** Desktop (`1440 × 900 px`)
 - **Element to Capture:**
-  - 6-digit persistent SME join code card (`854735`) with one-click copy button.
+  - 6-digit persistent SME join code card (`252429`) with one-click copy button.
   - Dispatched email invitation management drawer.
-  - Active staff table showing enrolled employees (e.g., *EMPLOYEE 1*), role, completion percentage, quiz average, and calculated individual HFS.
+  - Active staff table showing enrolled employees (e.g., *EMPLOYEE 1*, *EMPLOYEE 2*), role, completion percentage, quiz average, and calculated individual HFS.
   - **"Export CSV Roster"** compliance action button.
 - **Intended Usage:** Report (Chapter 4, Section 4.6.1); Defence Presentation (Slide: SME Compliance & Oversight).
 - **Suggested Academic Caption:** *Figure 4.18: Business Owner Workforce Security Administration and Compliance Roster interface.*
@@ -309,16 +324,16 @@ Use only the three verified academic test accounts configured in the live Supaba
 The `/how-it-works` route currently displays high-craft illustrated blueprint frames awaiting real screenshot replacement. When the candidate captures the eight specific product tour screenshots, save them with the exact filenames below in:
 `public/assets/smeshield/tour/`
 
-| Tour Step | Required Image Filename | Matching Capture ID | Interface Scene to Capture |
-| :---: | :--- | :--- | :--- |
-| **Step 1** | `step-1-signup.png` | `[SHOT-PUB-04]` | Signup form with Terms & Privacy checkbox and language picker. |
-| **Step 2** | `step-2-role.png` | `[SHOT-ONB-01]` | Multi-role archetype selection cards (*Owner, Employee, Sole*). |
-| **Step 3** | `step-3-onboarding.png` | `[SHOT-ONB-02]` | Business setup (Owner) or 6-digit join code entry (Employee). |
-| **Step 4** | `step-4-diagnostic.png` | `[SHOT-ONB-04]` | 5-question baseline diagnostic assessment card. |
-| **Step 5** | `step-5-dashboard.png` | `[SHOT-DASH-01]` | Role command dashboard with readiness metrics & defense track. |
-| **Step 6** | `step-6-recommendations.png`| `[SHOT-TRN-01]` | Training library with dynamically prioritized recommendation shelf. |
-| **Step 7** | `step-7-lesson.png` | `[SHOT-TRN-03]` or `[04]` | Interactive lesson viewer showing bilingual toggle and scenario. |
-| **Step 8** | `step-8-quiz-hfs.png` | `[SHOT-TRN-06]` | Quiz mastery pass certification ($\ge 80\%$) and updated HFS dial. |
+| Tour Step | Standard Filename | Alternate Filename | Matching Capture ID | Interface Scene to Capture |
+| :---: | :--- | :--- | :--- | :--- |
+| **Step 1** | `tour-01.png` | `step-1-signup.png` | `[SHOT-PUB-04]` | Signup form with Terms & Privacy checkbox and language picker. |
+| **Step 2** | `tour-02.png` | `step-2-role.png` | `[SHOT-ONB-01]` | Multi-role archetype selection cards (*Owner, Employee, Sole*). |
+| **Step 3** | `tour-03.png` | `step-3-onboarding.png` | `[SHOT-ONB-02]` | Business setup (Owner) or 6-digit join code entry (Employee). |
+| **Step 4** | `tour-04.png` | `step-4-diagnostic.png` | `[SHOT-ONB-04]` | 5-question baseline diagnostic assessment card. |
+| **Step 5** | `tour-05.png` | `step-5-dashboard.png` | `[SHOT-DASH-01]` | Role command dashboard with readiness metrics & defense track. |
+| **Step 6** | `tour-06.png` | `step-6-recommendations.png`| `[SHOT-TRN-01]` | Training library with dynamically prioritized recommendation shelf. |
+| **Step 7** | `tour-07.png` | `step-7-lesson.png` | `[SHOT-TRN-03]` or `[04]` | Interactive lesson viewer showing bilingual toggle and scenario. |
+| **Step 8** | `tour-08.png` | `step-8-quiz-hfs.png` | `[SHOT-TRN-06]` | Quiz mastery pass certification ($\ge 80\%$) and updated HFS dial. |
 
 ---
 

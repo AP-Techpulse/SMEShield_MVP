@@ -115,7 +115,7 @@ export default function NdpaCompliancePage() {
             <div className="mt-3 p-4 bg-surface-container-low rounded-lg text-body-sm">
               <p className="font-semibold text-primary-container">NDPA Regulatory Compliance Unit</p>
               <p>Email: <a href="mailto:compliance@smeshield.ng" className="text-secondary hover:underline">compliance@smeshield.ng</a></p>
-              <p>Direct Inquiries: +234 (0) 800-SMESHIELD</p>
+              <p>Direct Inquiries: Monday – Friday • 8:00 AM – 5:00 PM WAT</p>
             </div>
           </section>
         </div>

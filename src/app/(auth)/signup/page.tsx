@@ -97,7 +97,7 @@ function SignUpForm() {
                 {t('Create Your SMEShield Account', 'Open Your SMEShield Account Today')}
               </h1>
               <p className="font-body-md text-body-md text-muted-text">
-                {t('Join thousands of Nigerian SMEs building their human firewall with confidence.', 'Join plenti Nigerian business owners wey dey secure their daily work and money.')}
+                {t('Join Nigerian SMEs and frontline teams building their human firewall with confidence.', 'Join Nigerian business owners and staff wey dey secure their daily work and money.')}
               </p>
             </div>
             
@@ -357,7 +357,7 @@ function SignUpForm() {
           <div className="relative z-10 flex items-center justify-between">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/15 backdrop-blur-md border border-white/15">
               <span className="material-symbols-outlined text-[16px] text-warning-base">verified</span>
-              <span className="font-label-sm text-label-sm text-white tracking-wide font-medium">Enterprise Grade SME Shielding</span>
+              <span className="font-label-sm text-label-sm text-white tracking-wide font-medium">Adaptive SME Cybersecurity Shielding</span>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 text-white/90 font-label-sm text-label-sm bg-success-bg/90 text-success-text px-2.5 py-1 rounded-full border border-success-base/20">
               <span className="material-symbols-outlined text-[16px] text-success-base">verified_user</span>

@@ -191,7 +191,7 @@ export default async function ModuleOverviewPage({ params }: Props) {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent pointer-events-none"></div>
               <div className="absolute top-4 right-4 bg-surface px-3 py-1.5 rounded-full shadow-sm border border-border-subtle flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-success-base animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-success-base"></span>
                 <span className="text-xs font-semibold text-primary">Practical Workplace Simulation</span>
               </div>
               <div className="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-surface shadow-md border border-border-subtle">

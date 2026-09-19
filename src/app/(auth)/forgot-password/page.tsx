@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { forgotPassword } from '@/app/auth/actions'
+import { Logo } from '@/components/ui/Logo'
 
 function ForgotPasswordForm() {
   const searchParams = useSearchParams()
@@ -21,8 +22,7 @@ function ForgotPasswordForm() {
       {/* Top Bar: Logo & Language Toggle */}
       <div className="w-full flex items-center justify-between px-space-xs mb-space-lg">
         <Link href="/" className="flex items-center gap-space-xs">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="SMEShield Logo" className="h-10 w-auto object-contain" src="/assets/smeshield/icons/logo.svg" />
+          <Logo size="md" variant="horizontal" />
         </Link>
         {/* Language Toggle Pill */}
         <div aria-label="Language selection" className="flex items-center p-1 rounded-full bg-surface shadow-sm border border-border-subtle" role="radiogroup">

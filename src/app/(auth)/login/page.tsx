@@ -208,8 +208,8 @@ function LoginForm() {
               </Link>
             </p>
             <span className="font-label-sm text-[11px] text-muted-text flex items-center gap-1">
-              <span className="material-symbols-outlined text-sm text-success-base">verified_user</span>
-              Tier-1 Bank Grade Security
+              <span className="material-symbols-outlined text-sm text-success-base">lock</span>
+              Privacy-Conscious Architecture
             </span>
           </div>
         </div>
@@ -228,12 +228,12 @@ function LoginForm() {
           <div className="relative z-10 flex items-center justify-between">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/15 backdrop-blur-md text-on-primary border border-white/15 shadow-xs">
               <span className="material-symbols-outlined text-base text-warning-base">shield</span>
-              <span className="font-label-sm text-label-sm tracking-wide font-medium">SMEShield Enterprise Portal</span>
+              <span className="font-label-sm text-label-sm tracking-wide font-medium">SMEShield Learner Portal</span>
             </div>
             {/* NDPA 2023 Compliance Pill Badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success-bg text-success-text shadow-xs border border-success-base/20">
               <span className="material-symbols-outlined text-sm text-success-base">verified</span>
-              <span className="font-label-sm text-label-sm font-semibold">NDPA 2023 Compliant</span>
+              <span className="font-label-sm text-label-sm font-semibold">NDPA 2023 Aligned</span>
             </div>
           </div>
           

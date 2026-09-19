@@ -1,14 +1,83 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { MetricCounter, FadeInText } from '@/components/ui/MetricCounter'
 import { createClient } from '@/utils/supabase/client'
 
+const STORY_PILLARS = [
+  {
+    step: '01',
+    phase: 'Phase 1: Threat Reality',
+    phasePcm: 'Stage 1: Cyber Wahala',
+    theme: 'SME Ground Reality',
+    themePcm: 'Local Market Reality',
+    icon: 'warning',
+    iconColor: 'text-danger-base',
+    badgeClass: 'bg-danger-bg/90 text-danger-text border border-danger-base/20',
+    titleEn: 'Threats Target Human Trust, Not Firewalls',
+    titlePcm: 'Scam Dey Target Human Trust, No Be Firewall',
+    descriptionEn: 'Nigerian SMEs lose millions to fake banking credit SMS alerts, WhatsApp voice impersonation, and fraudulent POS reversals exploiting busy shop rush hours.',
+    descriptionPcm: 'Everyday cyber wahala for Naija dey target people: fake SMS alert, WhatsApp impersonation, and fake POS slip weh dey happen for market.',
+    metric: '86% of SME incidents begin with human manipulation',
+    metricPcm: '86% of cyber wahala start from human manipulation'
+  },
+  {
+    step: '02',
+    phase: 'Phase 2: The Education Void',
+    phasePcm: 'Stage 2: Big Grammar Problem',
+    theme: 'The Critical Training Void',
+    themePcm: 'Training Gap',
+    icon: 'help_outline',
+    iconColor: 'text-warning-base',
+    badgeClass: 'bg-warning-bg/90 text-warning-text border border-warning-base/20',
+    titleEn: 'Foreign Jargon Leaves Teams Defenceless',
+    titlePcm: 'Foreign Big-Big Grammar No Dey Help Us',
+    descriptionEn: 'Traditional corporate cybersecurity training relies on complex theoretical terms and foreign enterprise scenarios that leave frontline retail cashiers and assistants disengaged.',
+    descriptionPcm: 'Standard cyber training dey full of big-big grammar weh staff no understand. E no relate to daily shop work or Nigerian banking habits.',
+    metric: 'Zero contextual relevance to daily cash & POS flow',
+    metricPcm: 'E no relate to market and agency banking work'
+  },
+  {
+    step: '03',
+    phase: 'Phase 3: The SMEShield Response',
+    phasePcm: 'Stage 3: Our Solution',
+    theme: 'Bilingual & Adaptive Response',
+    themePcm: 'Two Language & Smart Lessons',
+    icon: 'translate',
+    iconColor: 'text-secondary-fixed',
+    badgeClass: 'bg-info-bg/90 text-info-text border border-info-base/20',
+    titleEn: 'Bilingual, Practical & Deterministic',
+    titlePcm: 'Two Language: English & Authentic Pidgin',
+    descriptionEn: 'All 15 modules are authored with equal pedagogical parity in clear English and authentic Nigerian Pidgin. Our deterministic engine maps lessons directly to your business sector.',
+    descriptionPcm: 'All 15 modules dey written for clear English and real Nigerian Pidgin. Our rule system go tailor training to your exact business type.',
+    metric: '1-click toggle between English & authentic Pidgin',
+    metricPcm: 'Two languages with instant 1-click switch'
+  },
+  {
+    step: '04',
+    phase: 'Phase 4: The Human Firewall',
+    phasePcm: 'Stage 4: Strong Security Shield',
+    theme: 'Frontline Human Firewall',
+    themePcm: 'Strong Frontline Shield',
+    icon: 'verified_user',
+    iconColor: 'text-success-base',
+    badgeClass: 'bg-success-bg/90 text-success-text border border-success-base/20',
+    titleEn: 'Continuous Frontline Vigilance',
+    titlePcm: 'Frontline Staff Wey Dey Vigilant',
+    descriptionEn: 'Frontline workers master real-world verification muscle memory, achieving 80%+ quiz mastery and boosting your organization’s measurable Human Firewall Score (HFS).',
+    descriptionPcm: 'Staff dey build sharp vigilance muscle memory, pass 80%+ quiz threshold, and make business Human Firewall Score strong.',
+    metric: 'Measurable 0–100% Human Firewall Score (HFS)',
+    metricPcm: 'Measured Human Firewall Score (0–100%)'
+  }
+]
+
 export default function LandingPage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const [activeStoryPillar, setActiveStoryPillar] = useState(0)
+  const [isStoryPaused, setIsStoryPaused] = useState(false)
 
   useEffect(() => {
     const supabase = createClient()
@@ -17,85 +86,201 @@ export default function LandingPage() {
     })
   }, [])
 
+  const nextPillar = useCallback(() => {
+    setActiveStoryPillar((prev) => (prev + 1) % STORY_PILLARS.length)
+  }, [])
+
+  const prevPillar = useCallback(() => {
+    setActiveStoryPillar((prev) => (prev - 1 + STORY_PILLARS.length) % STORY_PILLARS.length)
+  }, [])
+
+  // Auto-advance storytelling carousel every 6 seconds unless paused or reduced motion requested
+  useEffect(() => {
+    if (isStoryPaused) return
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mediaQuery.matches) return
+
+    const interval = setInterval(() => {
+      nextPillar()
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [isStoryPaused, nextPillar])
+
+  const currentPillar = STORY_PILLARS[activeStoryPillar]
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
-      <section className="relative w-full -mt-20 overflow-hidden bg-primary-container text-on-primary min-h-[90vh] flex flex-col justify-center">
+      <section className="relative w-full -mt-20 overflow-hidden bg-primary-container text-on-primary min-h-[92vh] flex flex-col justify-center">
         {/* Background Image with High-Depth Gradient Overlay */}
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center" 
           style={{ backgroundImage: "url('/assets/smeshield/hero/hero-storytelling.jpg')" }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-container/95 via-primary-container/85 to-primary-container/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-container/95 via-primary-container/90 to-primary-container/60"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent"></div>
         
         {/* Hero Content Container */}
-        <div className="relative max-w-container-max mx-auto px-space-lg lg:px-space-xl pt-28 pb-16 flex flex-col items-start z-10 w-full">
-          {/* Pill Badge */}
-          <div className="inline-flex items-center gap-space-xs bg-surface-container-lowest/15 backdrop-blur-md px-space-md py-space-xxs rounded-full mb-space-lg shadow-sm border border-white/10">
-            <span className="material-symbols-outlined text-[16px] text-warning-base">verified</span>
-            <span className="font-label-md text-label-md text-surface-container-lowest tracking-wide font-medium">
-              {t('Bilingual Cybersecurity Training Built for Nigeria', 'Bilingual Cybersecurity Training Built for Nigeria')}
-            </span>
-          </div>
-          
-          {/* Main Headline */}
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero max-w-4xl text-on-primary leading-tight tracking-tight mb-space-lg">
-            {t('Protect Your Business From Scams, Fraud & Account Takeover', 'Protect Your Business From Scam, Fake Alert & Cyber Wahala')}
-          </h1>
-          
-          {/* Subtitle */}
-          <p className="font-body-lg text-body-lg text-surface-container-high max-w-2xl mb-space-2xl leading-relaxed">
-            {t(
-              'Practical, bite-sized cybersecurity training designed specifically for Nigerian SMEs, POS agents, and retail shops. Available in clear English and authentic Nigerian Pidgin with zero complex jargon.',
-              'Short-short cyber training weh dey for Nigerian SMEs, POS agents, and shops. E dey for clear English and real Nigerian Pidgin, no big-big grammar.'
-            )}
-          </p>
-          
-          {/* CTA Action Group */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-3xl">
-            <Link 
-              href={isAuthenticated ? "/dashboard" : "/signup"} 
-              className="h-12 min-h-touch-target-min px-space-xl inline-flex items-center justify-center gap-space-xs font-label-md text-label-md bg-warning-base text-tertiary font-semibold rounded-lg hover:bg-warning-base/90 transition-all shadow-md active:scale-95"
-            >
-              <span>{isAuthenticated ? t('Go to Dashboard', 'Go to Dashboard') : t('Start Free Training', 'Start Free Training')}</span>
-              <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-            </Link>
-            <Link href="#how-it-works" className="h-12 min-h-touch-target-min px-space-lg inline-flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-primary bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 rounded-lg transition-colors backdrop-blur-sm border border-white/10">
-              <span className="material-symbols-outlined text-[20px]">info</span>
-              <span>{t('Learn How It Works', 'See How E Dey Work')}</span>
-            </Link>
-          </div>
-          
-          {/* Trust Badges Bar */}
-          <div className="w-full pt-space-lg bg-surface-container-lowest/10 backdrop-blur-md rounded-xl px-space-lg py-space-md grid grid-cols-1 md:grid-cols-3 gap-space-md border border-white/10">
-            <div className="flex items-center gap-space-sm">
-              <div className="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed">
-                <span className="material-symbols-outlined text-[22px]">verified_user</span>
+        <div className="relative max-w-container-max mx-auto px-space-lg lg:px-space-xl pt-28 pb-16 z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+            
+            {/* Left Column (7 Cols): Hero Headline, Value Proposition & CTAs */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-space-xs bg-surface-container-lowest/15 backdrop-blur-md px-space-md py-space-xxs rounded-full mb-space-lg shadow-sm border border-white/15">
+                <span className="material-symbols-outlined text-[16px] text-warning-base">verified</span>
+                <span className="font-label-md text-label-md text-surface-container-lowest tracking-wide font-medium">
+                  {t('Bilingual Cybersecurity Training Built for Nigeria', 'Bilingual Cybersecurity Training Built for Nigeria')}
+                </span>
               </div>
-              <div>
-                <div className="font-label-md text-label-md text-on-primary">{t('NDPA 2023 Aligned', 'NDPA 2023 Aligned')}</div>
-                <div className="font-body-sm text-body-sm text-surface-container-high">{t('Full local compliance standards', 'Full local compliance standards')}</div>
+              
+              {/* Main Headline */}
+              <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-primary leading-tight tracking-tight mb-space-lg">
+                {t('Protect Your Business From Scams, Fraud & Account Takeover', 'Protect Your Business From Scam, Fake Alert & Cyber Wahala')}
+              </h1>
+              
+              {/* Subtitle */}
+              <p className="font-body-lg text-body-lg text-surface-container-high mb-space-2xl leading-relaxed max-w-2xl">
+                {t(
+                  'Practical, bite-sized cybersecurity training designed specifically for Nigerian SMEs, POS agents, and retail shops. Available in clear English and authentic Nigerian Pidgin with zero complex jargon.',
+                  'Short-short cyber training weh dey for Nigerian SMEs, POS agents, and shops. E dey for clear English and real Nigerian Pidgin, no big-big grammar.'
+                )}
+              </p>
+              
+              {/* CTA Action Group */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full sm:w-auto mb-space-2xl">
+                <Link 
+                  href={isAuthenticated ? "/dashboard" : "/signup"} 
+                  className="h-12 min-h-touch-target-min px-space-xl inline-flex items-center justify-center gap-space-xs font-label-md text-label-md bg-warning-base text-tertiary font-semibold rounded-lg hover:bg-warning-base/90 transition-all shadow-md active:scale-95"
+                >
+                  <span>{isAuthenticated ? t('Go to Dashboard', 'Go to Dashboard') : t('Start Free Training', 'Start Free Training')}</span>
+                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </Link>
+                <Link href="#how-it-works" className="h-12 min-h-touch-target-min px-space-lg inline-flex items-center justify-center gap-space-xs font-label-md text-label-md text-on-primary bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 rounded-lg transition-colors backdrop-blur-sm border border-white/15">
+                  <span className="material-symbols-outlined text-[20px]">info</span>
+                  <span>{t('Learn How It Works', 'See How E Dey Work')}</span>
+                </Link>
+              </div>
+              
+              {/* Trust Badges Bar */}
+              <div className="w-full pt-space-md bg-surface-container-lowest/10 backdrop-blur-md rounded-xl px-space-md py-space-sm grid grid-cols-1 md:grid-cols-3 gap-space-sm border border-white/10">
+                <div className="flex items-center gap-space-xs">
+                  <div className="w-9 h-9 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed shrink-0">
+                    <span className="material-symbols-outlined text-[20px]">verified_user</span>
+                  </div>
+                  <div>
+                    <div className="font-label-md text-xs text-on-primary font-semibold">{t('NDPA 2023 Aligned', 'NDPA 2023 Aligned')}</div>
+                    <div className="font-body-sm text-[11px] text-surface-container-high">{t('Statutory data protection principles', 'Statutory data protection principles')}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-space-xs">
+                  <div className="w-9 h-9 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed shrink-0">
+                    <span className="material-symbols-outlined text-[20px]">layers</span>
+                  </div>
+                  <div>
+                    <div className="font-label-md text-xs text-on-primary font-semibold">{t('15 Real-World Modules', '15 Real-World Modules')}</div>
+                    <div className="font-body-sm text-[11px] text-surface-container-high">{t('Targeted against local cyber schemes', 'Targeted against local cyber schemes')}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-space-xs">
+                  <div className="w-9 h-9 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed shrink-0">
+                    <span className="material-symbols-outlined text-[20px]">psychology</span>
+                  </div>
+                  <div>
+                    <div className="font-label-md text-xs text-on-primary font-semibold">{t('Rule-Based Adaptive', 'Rule-Based Adaptive')}</div>
+                    <div className="font-body-sm text-[11px] text-surface-container-high">{t('Personalized micro-learning track', 'Personalized micro-learning track')}</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-space-sm">
-              <div className="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed">
-                <span className="material-symbols-outlined text-[22px]">layers</span>
-              </div>
-              <div>
-                <div className="font-label-md text-label-md text-on-primary">{t('15 Real-World Modules', '15 Real-World Modules')}</div>
-                <div className="font-body-sm text-body-sm text-surface-container-high">{t('Targeted against local cyber schemes', 'Targeted against local cyber schemes')}</div>
+
+            {/* Right Column (5 Cols): Human Firewall Storytelling Matrix */}
+            <div className="lg:col-span-5 w-full">
+              <div 
+                className="bg-surface-container-lowest/15 backdrop-blur-xl border border-white/20 rounded-2xl p-space-lg lg:p-space-xl shadow-2xl text-on-primary relative overflow-hidden transition-all duration-300"
+                onMouseEnter={() => setIsStoryPaused(true)}
+                onMouseLeave={() => setIsStoryPaused(false)}
+              >
+                {/* Story Card Header */}
+                <div className="flex items-center justify-between gap-2 pb-space-sm border-b border-white/15">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs font-bold text-warning-base tracking-wider uppercase">
+                      {language === 'pcm' ? currentPillar.phasePcm : currentPillar.phase}
+                    </span>
+                  </div>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold font-mono ${currentPillar.badgeClass}`}>
+                    Step {currentPillar.step} of 04
+                  </span>
+                </div>
+
+                {/* Main Story Content */}
+                <div className="py-space-md min-h-[190px] flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`material-symbols-outlined text-[26px] ${currentPillar.iconColor}`}>
+                        {currentPillar.icon}
+                      </span>
+                      <h2 className="font-serif text-xl font-bold text-on-primary leading-snug">
+                        {language === 'pcm' ? currentPillar.titlePcm : currentPillar.titleEn}
+                      </h2>
+                    </div>
+                    <p className="font-body-md text-sm text-surface-container-high leading-relaxed">
+                      {language === 'pcm' ? currentPillar.descriptionPcm : currentPillar.descriptionEn}
+                    </p>
+                  </div>
+
+                  {/* Empirical / Practical Metric Highlight */}
+                  <div className="mt-space-md p-2.5 rounded-lg bg-surface-container-lowest/10 border border-white/10 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-warning-base text-[18px] shrink-0">analytics</span>
+                    <span className="font-label-sm text-xs text-on-primary font-medium truncate">
+                      {language === 'pcm' ? currentPillar.metricPcm : currentPillar.metric}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Story Stepper Controller */}
+                <div className="pt-space-sm border-t border-white/15 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5" role="tablist" aria-label="Human Firewall Story Phases">
+                    {STORY_PILLARS.map((p, idx) => (
+                      <button
+                        key={p.step}
+                        onClick={() => setActiveStoryPillar(idx)}
+                        className={`h-7 px-2.5 rounded-full text-xs font-mono font-semibold transition-all flex items-center justify-center ${
+                          activeStoryPillar === idx 
+                            ? 'bg-warning-base text-tertiary shadow-sm' 
+                            : 'bg-white/10 text-white hover:bg-white/20'
+                        }`}
+                        aria-label={`Jump to ${p.theme}`}
+                        aria-selected={activeStoryPillar === idx}
+                        role="tab"
+                      >
+                        {p.step}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={prevPillar}
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition focus:outline-none"
+                      aria-label="Previous story milestone"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+                    </button>
+                    <button
+                      onClick={nextPillar}
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition focus:outline-none"
+                      aria-label="Next story milestone"
+                    >
+                      <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-space-sm">
-              <div className="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center text-secondary-fixed">
-                <span className="material-symbols-outlined text-[22px]">psychology</span>
-              </div>
-              <div>
-                <div className="font-label-md text-label-md text-on-primary">{t('Rule-Based Adaptive', 'Rule-Based Adaptive')}</div>
-                <div className="font-body-sm text-body-sm text-surface-container-high">{t('Personalized micro-learning track', 'Personalized micro-learning track')}</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -317,7 +502,7 @@ export default function LandingPage() {
               </p>
               <div className="mt-auto bg-surface rounded-lg p-space-sm flex items-center gap-space-sm shadow-xs">
                 <span className="material-symbols-outlined text-success-base text-[22px]">workspace_premium</span>
-                <span className="font-label-sm text-label-sm text-primary-container">{t('Instant downloadable compliance pass', 'Instant compliance certificate')}</span>
+                <span className="font-label-sm text-label-sm text-primary-container">{t('Instant downloadable awareness pass', 'Instant awareness certificate')}</span>
               </div>
             </div>
           </div>
@@ -356,8 +541,8 @@ export default function LandingPage() {
                 <h3 className="font-headline-md text-headline-md text-primary-container mb-space-xs">{t('Business Owner', 'Business Owner')}</h3>
                 <p className="font-body-sm text-body-sm text-muted-text mb-space-lg">
                   {t(
-                    'Full control over company threat posture. Create your business workspace (e.g. BrightPay Ventures), generate persistent 6-digit staff join codes, and dispatch Brevo-powered invitations.',
-                    'Full control over company security. Create your business workspace, generate 6-digit staff code, and send invitations.'
+                    'Full control over company threat posture. Create your business workspace (e.g. BrightPay Ventures), generate persistent 6-digit staff join codes, and manage your linked team roster.',
+                    'Full control over company security. Create your business workspace, generate 6-digit staff code, and manage your staff list.'
                   )}
                 </p>
                 <ul className="space-y-space-sm mb-space-lg">
@@ -371,7 +556,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface">
                     <span className="material-symbols-outlined text-secondary text-[18px]">check</span>
-                    <span>{t('One-click NDPA 2023 employee compliance export', 'One-click NDPA 2023 compliance export')}</span>
+                    <span>{t('One-click employee training compliance export', 'One-click employee compliance export')}</span>
                   </li>
                 </ul>
               </div>
@@ -657,7 +842,7 @@ export default function LandingPage() {
                 </div>
                 <div className="flex items-center gap-space-xs">
                   <span className="material-symbols-outlined text-success-base text-[18px]">check_circle</span>
-                  <span>{t('NDPA compliant certificate', 'NDPA compliant certificate')}</span>
+                  <span>{t('NDPA-aligned awareness certificate', 'NDPA-aligned awareness certificate')}</span>
                 </div>
               </div>
             </div>

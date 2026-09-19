@@ -84,7 +84,7 @@ const TOUR_STEPS: TourStep[] = [
     blueprintFeatures: [
       'Business Trading Name & Headcount Setup',
       'Persistent 6-Digit Alphanumeric Join Code',
-      'Direct Email Dispatch (Brevo Integration)',
+      'Employee Roster & Invitation Key Provisioning',
       'PostgreSQL RLS Tenant Isolation Guard'
     ]
   },
@@ -353,8 +353,8 @@ export default function HowItWorksPage() {
             </h2>
             <p className="font-body-md text-surface-container-high mb-space-xl leading-relaxed">
               {t(
-                'Join thousands of Nigerian SMEs, retail merchants, and agency banking operators building daily frontline vigilance.',
-                'Join thousands of Nigerian SMEs and shops weh dey build daily protection against cyber scams.'
+                'Join forward-thinking Nigerian SMEs, retail merchants, and agency banking operators building daily frontline vigilance.',
+                'Join Nigerian SMEs and shops weh dey build daily protection against cyber scams.'
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-space-md">

@@ -58,21 +58,23 @@ export async function completeOnboarding(formData: FormData) {
     }
 
   } else if (role === 'employee') {
-    const joinCode = formData.get('join_code') as string
+    const rawJoinCode = formData.get('join_code') as string
+    const joinCode = (rawJoinCode || '').trim().replace(/\D/g, '').slice(0, 6)
 
-    // Find business by join code
-    const { data: business, error: lookupError } = await supabase
+    // Find business by join code using admin client to prevent RLS permission false negatives
+    const { data: business, error: lookupError } = await supabaseAdmin
       .from('businesses')
       .select('id, name')
       .eq('join_code', joinCode)
       .single()
 
     if (lookupError || !business) {
+      console.error('[Onboarding] Join code lookup failed:', { joinCode, lookupError, business })
       redirect('/onboarding?error=' + encodeURIComponent('Invalid join code. Please check with your employer.'))
     }
 
-    // Create user profile as employee
-    const { error: userError } = await supabase
+    // Create user profile as employee using admin client
+    const { error: userError } = await supabaseAdmin
       .from('users')
       .upsert({
         id: user.id,
@@ -86,11 +88,20 @@ export async function completeOnboarding(formData: FormData) {
       redirect('/onboarding?error=' + encodeURIComponent(userError.message))
     }
 
+    // If an invite was pending for this employee's email, mark it accepted
+    if (user.email) {
+      await supabaseAdmin
+        .from('employee_invites')
+        .update({ status: 'accepted' })
+        .eq('business_id', business.id)
+        .eq('email', user.email)
+    }
+
   } else if (role === 'sole_entrepreneur') {
     const businessType = formData.get('business_type') as string
 
     // Create user profile without a business
-    const { error: userError } = await supabase
+    const { error: userError } = await supabaseAdmin
       .from('users')
       .upsert({
         id: user.id,
@@ -105,7 +116,7 @@ export async function completeOnboarding(formData: FormData) {
 
     // Optionally create a personal business entry for tracking
     if (businessType) {
-      const { data: business } = await supabase
+      const { data: business } = await supabaseAdmin
         .from('businesses')
         .insert({
           name: fullName + "'s Business",
@@ -115,7 +126,7 @@ export async function completeOnboarding(formData: FormData) {
         .single()
 
       if (business) {
-        await supabase
+        await supabaseAdmin
           .from('users')
           .update({ business_id: business.id })
           .eq('id', user.id)
