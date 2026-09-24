@@ -24,6 +24,7 @@ export async function login(formData: FormData) {
 
 export async function signup(formData: FormData) {
   const supabase = await createClient()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://sme-shield-mvp.vercel.app')
 
   const data = {
     email: formData.get('email') as string,
@@ -32,6 +33,7 @@ export async function signup(formData: FormData) {
       data: {
         full_name: formData.get('full_name') as string,
       },
+      emailRedirectTo: `${siteUrl}/auth/callback`,
     },
   }
 
@@ -47,11 +49,12 @@ export async function signup(formData: FormData) {
 
 export async function forgotPassword(formData: FormData) {
   const supabase = await createClient()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://sme-shield-mvp.vercel.app')
 
   const email = formData.get('email') as string
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback?next=/reset-password`,
+    redirectTo: `${siteUrl}/auth/callback?next=/reset-password`,
   })
 
   if (error) {
