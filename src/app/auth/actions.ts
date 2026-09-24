@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 
 export async function login(formData: FormData) {
@@ -24,7 +25,11 @@ export async function login(formData: FormData) {
 
 export async function signup(formData: FormData) {
   const supabase = await createClient()
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://sme-shield-mvp.vercel.app')
+  const headerList = await headers()
+  const host = headerList.get('x-forwarded-host') || headerList.get('host') || 'sme-shield-mvp.vercel.app'
+  const proto = headerList.get('x-forwarded-proto') || (process.env.NODE_ENV === 'development' ? 'http' : 'https')
+  const currentOrigin = `${proto}://${host}`
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || currentOrigin
 
   const data = {
     email: formData.get('email') as string,
@@ -49,7 +54,11 @@ export async function signup(formData: FormData) {
 
 export async function forgotPassword(formData: FormData) {
   const supabase = await createClient()
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://sme-shield-mvp.vercel.app')
+  const headerList = await headers()
+  const host = headerList.get('x-forwarded-host') || headerList.get('host') || 'sme-shield-mvp.vercel.app'
+  const proto = headerList.get('x-forwarded-proto') || (process.env.NODE_ENV === 'development' ? 'http' : 'https')
+  const currentOrigin = `${proto}://${host}`
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || currentOrigin
 
   const email = formData.get('email') as string
 
