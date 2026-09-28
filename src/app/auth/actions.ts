@@ -42,13 +42,19 @@ export async function signup(formData: FormData) {
     },
   }
 
-  const { error } = await supabase.auth.signUp(data)
+  const { data: authData, error } = await supabase.auth.signUp(data)
 
   if (error) {
     redirect('/signup?error=' + encodeURIComponent(error.message))
   }
 
   revalidatePath('/', 'layout')
+
+  // If session is immediately established (e.g., email confirmation off), proceed directly to onboarding
+  if (authData?.session) {
+    redirect('/onboarding')
+  }
+
   redirect('/signup?message=Check your email to confirm your account')
 }
 
