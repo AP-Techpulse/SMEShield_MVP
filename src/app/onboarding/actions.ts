@@ -4,7 +4,16 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient, createAdminClient } from '@/utils/supabase/server'
 
-function generateJoinCode(): string {
+async function generateUniqueJoinCode(adminClient: any): Promise<string> {
+  for (let i = 0; i < 5; i++) {
+    const code = Math.floor(100000 + Math.random() * 900000).toString()
+    const { data } = await adminClient
+      .from('businesses')
+      .select('id')
+      .eq('join_code', code)
+      .maybeSingle()
+    if (!data) return code
+  }
   return Math.floor(100000 + Math.random() * 900000).toString()
 }
 
@@ -23,10 +32,10 @@ export async function completeOnboarding(formData: FormData) {
     const businessType = formData.get('business_type') as string
     const location = formData.get('location') as string
     const employeeCount = formData.get('employee_count') as string
-    const joinCode = generateJoinCode()
+    const joinCode = await generateUniqueJoinCode(supabaseAdmin)
 
-    // Create the business
-    const { data: business, error: businessError } = await supabase
+    // Create the business using admin client to prevent RLS restriction during initial onboarding
+    const { data: business, error: businessError } = await supabaseAdmin
       .from('businesses')
       .insert({
         name: businessName,
